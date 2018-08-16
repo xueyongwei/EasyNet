@@ -7,9 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "BrowserTagsManager.h"
+#import "WebBrowserViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<BrowserTagsManagerProtocol>
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
+@property (weak, nonatomic) UIViewController *currentVC;
 @end
 
 @implementation ViewController
@@ -21,9 +25,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [BrowserTagsManager shareInstance].delegate = self;
+    WebBrowserViewController *web = [self.storyboard instantiateViewControllerWithIdentifier:@"WebBrowserViewController"];
+    web.needLoadUrlStr = @"";
+    [BrowserTagsManager addNewTag:web display:true];
 }
 
+-(void)disPlay:(UIViewController *)vc{
+    if (self.currentVC){
+        [self.currentVC.view removeFromSuperview];
+        [self.currentVC removeFromParentViewController];
+    }
+    
+    [self addChildViewController:vc];
+    [vc didMoveToParentViewController:self];
+    [self.containerView addSubview:vc.view];
+    vc.view.translatesAutoresizingMaskIntoConstraints = false;
+    [vc.view.topAnchor constraintEqualToAnchor:self.containerView.topAnchor constant:0].active = true;
+    [vc.view.leftAnchor constraintEqualToAnchor:self.containerView.leftAnchor constant:0].active = true;
+    [vc.view.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor constant:0].active = true;
+    [vc.view.rightAnchor constraintEqualToAnchor:self.containerView.rightAnchor constant:0].active = true;
+    
+    self.currentVC = vc;
+}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"WebBrowserViewController"]){
+//        WebBrowserViewController* vc = (WebBrowserViewController* ) segue.destinationViewController;
+//        [BrowserTagsManager addNewTag:vc display:false];
+//        self.currentVC = (UIViewController*)vc;
+//    }
+//
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

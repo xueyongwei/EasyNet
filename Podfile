@@ -9,5 +9,7 @@ pod 'MBProgressHUD', '0.9.1'
 pod 'YYKit', '0.9.6'
 #夜间模式
 pod 'DKNightVersion', '2.4.0'
+#动画卡片
+pod 'iCarousel'
 end
 

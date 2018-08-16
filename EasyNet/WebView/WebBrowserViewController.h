@@ -10,6 +10,9 @@
 #import "SearchViewController.h"
 
 @interface WebBrowserViewController : UIViewController
+/// 需要加载的url
+@property (copy,nonatomic) NSString * needLoadUrlStr;
+/// 缩略图
 -(UIImage *)thumbImage;
 @end
 

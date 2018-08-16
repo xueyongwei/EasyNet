@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
 
+
 /// 处理webView的各种代理方法
 @interface TabMabager : NSObject <WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler>
 /// 一个实例
 + (TabMabager*)shareInstance;
+
+
 
 @end

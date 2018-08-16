@@ -63,7 +63,12 @@
     [super viewDidLoad];
     
     [self customWebView];
-    NSURL *url = [[NSURL alloc]initWithString:@"http://baidu.com"];
+    
+    NSString *loadUrlStr = @"http://baidu.com";
+    if (self.needLoadUrlStr.length > 0){
+        loadUrlStr = self.needLoadUrlStr;
+    }
+    NSURL *url = [[NSURL alloc]initWithString:loadUrlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
     
@@ -377,6 +382,7 @@
     }];
     return ac;
 }
+
 -(UIAlertAction *)actionOpenInNewTag{
     UIAlertAction *ac = [UIAlertAction actionWithTitle:@"在新标签打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [MBProgressHUD showFailImage:@"还没有实现"];
