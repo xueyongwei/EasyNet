@@ -17,21 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txo-gm-aNF">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="&lt;" id="HM8-de-k3N"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="whO-Vd-d9Z"/>
-                                    <barButtonItem title="&gt;" id="OB8-wQ-141"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7tg-zh-Rux"/>
-                                    <barButtonItem title="三" id="QFS-K2-RQL"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XKO-ay-kFR"/>
-                                    <barButtonItem title="吕" id="cfb-yN-xyB"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qmQ-me-3bY"/>
-                                    <barButtonItem title="囧" id="6Vc-xN-XlG"/>
-                                </items>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PZj-M1-KBw">
                                 <rect key="frame" x="177.5" y="323" width="20" height="20"/>
                             </activityIndicatorView>
@@ -39,10 +24,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PZj-M1-KBw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LEl-wO-ja9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="txo-gm-aNF" secondAttribute="bottom" id="Lao-Xo-DFC"/>
                             <constraint firstItem="PZj-M1-KBw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="c1z-0k-yJn"/>
-                            <constraint firstAttribute="trailing" secondItem="txo-gm-aNF" secondAttribute="trailing" id="n9G-OS-rEp"/>
-                            <constraint firstItem="txo-gm-aNF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qjm-M5-Saa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

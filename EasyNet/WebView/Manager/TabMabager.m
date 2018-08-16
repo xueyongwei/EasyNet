@@ -97,52 +97,6 @@
 
 
 
-//MARK: - WKScriptMessageHandler
--(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
-{
-    
-    if ([message.name isEqualToString: @"OOFJS"]){
-        NSDictionary *dic = (NSDictionary* )message.body;
-        NSString *fun = dic[@"fun"];
-        if (dic == nil || fun == nil){
-            return;
-        }
-        NSObject *obj = dic[@"arg"];
-        if( [obj isKindOfClass:[NSArray class]] ){
-            NSArray *arg = (NSArray *)obj;
-            if ([fun isEqualToString: @"homeList"]  && arg.count == 1){
-//                self.homeList(arg[0] as? String ?? "")
-            }
-            else if ([fun isEqualToString: @"getPicBrowserArray"] && arg.count > 0){
-                [self getPicBrowserArray:arg[0]];
-            }
-        }else if ([obj isKindOfClass:[NSDictionary class]]){
-            NSDictionary *arg = (NSDictionary *)obj;
-//            if fun == "openPicBrowser" {// openPicBrowser
-//                if let picString = arg.object(forKey: "pics")  as? String  {
-//                    NotificationCenter.default.post(
-//                                                    name: NSNotification.Name.Ex.DetailsPageDidTapPicture,
-//                                                    object: nil,
-//                                                    userInfo: ["picsString":picString]
-//                                                    )
-//                }
-//            }
-//            if ([fun isEqualToString: @"openPicBrowser"]) {
-//
-//            }
-        }
-    }
-           
-                      
-    
-}
 
-//MARK: - 方法
-
-/// 获取图片地址数组
--(void)getPicBrowserArray:(NSString *)obj{
-    
-    allImagesUrl = [obj componentsSeparatedByString:@"*|*"];
-}
 
 @end

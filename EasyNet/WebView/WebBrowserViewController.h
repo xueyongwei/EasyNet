@@ -10,9 +10,17 @@
 #import "SearchViewController.h"
 
 @interface WebBrowserViewController : UIViewController
-
+-(UIImage *)thumbImage;
 @end
 
 @interface WebBrowserViewController(SearchViewControllerProtocol) <SearchViewControllerProtocol>
+
+@end
+
+@interface WebBrowserViewController(UIGestureRecognizerDelegate) <UIGestureRecognizerDelegate>
+
+@end
+
+@interface WebBrowserViewController(WKScriptMessageHandler) <WKScriptMessageHandler>
 
 @end

@@ -413,14 +413,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-oc-XcF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences" minimumFontSize="1"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBK-6S-skE">
                                 <rect key="frame" x="0.0" y="738" width="375" height="40"/>
                                 <constraints>
@@ -516,16 +508,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="KaG-oc-XcF" secondAttribute="bottom" id="5J4-Jp-ogQ"/>
                             <constraint firstItem="9oA-VO-lw8" firstAttribute="top" secondItem="epN-aR-7rx" secondAttribute="top" id="Ry0-nV-nX6"/>
                             <constraint firstItem="tKH-yI-Hxs" firstAttribute="trailing" secondItem="9oA-VO-lw8" secondAttribute="trailing" id="Y1a-zX-WPS"/>
-                            <constraint firstItem="KaG-oc-XcF" firstAttribute="top" secondItem="epN-aR-7rx" secondAttribute="top" id="bWS-um-WOA"/>
-                            <constraint firstAttribute="trailing" secondItem="KaG-oc-XcF" secondAttribute="trailing" id="kbu-IV-bQw"/>
                             <constraint firstAttribute="trailing" secondItem="bBK-6S-skE" secondAttribute="trailing" id="p5b-wB-jpp"/>
                             <constraint firstItem="9oA-VO-lw8" firstAttribute="leading" secondItem="tKH-yI-Hxs" secondAttribute="leading" id="rcb-4R-ATn"/>
                             <constraint firstItem="bBK-6S-skE" firstAttribute="leading" secondItem="tKH-yI-Hxs" secondAttribute="leading" id="xus-lZ-uj9"/>
                             <constraint firstItem="tKH-yI-Hxs" firstAttribute="bottom" secondItem="bBK-6S-skE" secondAttribute="bottom" id="yfA-aQ-QeR"/>
-                            <constraint firstItem="KaG-oc-XcF" firstAttribute="leading" secondItem="epN-aR-7rx" secondAttribute="leading" id="zAj-NY-4Sd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tKH-yI-Hxs"/>
                     </view>
@@ -540,7 +528,7 @@
                         <outlet property="searchHeaderView" destination="Bxb-Ma-cS2" id="OcI-of-SMN"/>
                         <outlet property="tabsBtn" destination="K5K-Rj-ath" id="f0o-Gp-vXd"/>
                         <outlet property="titleBtn" destination="EHR-1O-v4o" id="a1d-NK-gyW"/>
-                        <outlet property="webView" destination="KaG-oc-XcF" id="Ym8-b8-0Yk"/>
+                        <segue destination="DOW-J9-dKT" kind="presentation" identifier="BrowserPicture" animates="NO" modalPresentationStyle="overFullScreen" id="5dJ-wm-Zsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETJ-g8-WHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -554,6 +542,21 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="478" y="907"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6LW-xY-MUn">
+            <objects>
+                <viewController id="DOW-J9-dKT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PbE-3L-aWb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0eh-Vl-p43"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IoU-mz-5R6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530" y="1848"/>
         </scene>
     </scenes>
 </document>

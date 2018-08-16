@@ -11,8 +11,16 @@
 #import "TabMabager.h"
 #import <WebKit/WebKit.h>
 #import <YYKit.h>
+#import "LinkElement.h"
+#import "MBProgressHUD+Utility.h"
+#import <Photos/Photos.h>
+#import "UIAlertController+Blocks.h"
+#import "UIImage+SavingData.h"
+
+
 @interface WebBrowserViewController ()
-@property (weak, nonatomic) IBOutlet WKWebView *webView;
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headertitleTopConst;
@@ -25,13 +33,31 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *titleBtn;
 @property (weak, nonatomic) IBOutlet UIView *searchHeaderView;
+@property (strong,nonatomic) UILongPressGestureRecognizer *longPress;
 
-
-
+@property (nonatomic,strong)LinkElement* element;
 
 @end
 
 @implementation WebBrowserViewController
+{
+    NSArray* allImagesUrl;
+}
+
+-(WKWebView *)webView{
+    if (!_webView){
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc]init];
+        config.processPool = [[WKProcessPool alloc]init];
+        [config.preferences setJavaScriptCanOpenWindowsAutomatically:false];
+        config.preferences.javaScriptEnabled = true;
+        [config setWebsiteDataStore:WKWebsiteDataStore.nonPersistentDataStore];
+        
+        WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
+        
+        _webView = webview;
+    }
+    return _webView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,15 +70,21 @@
 }
 
 -(void)customWebView{
+    [self.view insertSubview:self.webView atIndex:0];
+//    self.webView.frame = CGRectMake(0, 0, YYScreenSize().width, YYScreenSize().height);
+    self.webView.translatesAutoresizingMaskIntoConstraints = false;
+    [self.webView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:0].active = true;
+    [self.webView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0].active = true;;
+    [self.webView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:0].active = true;;
+    [self.webView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:0].active = true;;
     
     self.webView.UIDelegate = [TabMabager shareInstance];
     self.webView.navigationDelegate = [TabMabager shareInstance];
-    [self.webView.configuration setWebsiteDataStore:WKWebsiteDataStore.nonPersistentDataStore];
     
     [self addJS];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
@@ -61,6 +93,11 @@
     [self.webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     
+    // 添加长按手势
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]init];
+    [self.webView addGestureRecognizer:longPress];
+    self.longPress = longPress;
 }
 
 -(void)addJS{
@@ -70,12 +107,12 @@
     if (error != nil) {
         NSLog(@"JS资源文件读取失败！");
     }
-   
+    source = [NSString stringWithFormat:@"%@;document.documentElement.style.webkitTouchCallout='none';",source];
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:false];
     
     [self.webView.configuration.userContentController addUserScript:userScript];
     
-    [self.webView.configuration.userContentController addScriptMessageHandler:TabMabager.shareInstance name:@"EN"];
+    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"OOFJS"];
     
 }
 
@@ -141,7 +178,10 @@
 }
 
 
-
+/// 缩略图
+-(UIImage *)thumbImage{
+    return [self.webView snapshotImage];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -179,3 +219,294 @@
 }
 
 @end
+
+//MARK: - UIGestureRecognizerDelegate
+@implementation WebBrowserViewController(UIGestureRecognizerDelegate)
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return  true;
+}
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    return [otherGestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]] && [otherGestureRecognizer.delegate.description containsString:@"WKContentView"];
+}
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return !UIAccessibilityIsVoiceOverRunning();
+}
+
+@end
+//MARK: - WKScriptMessageHandler
+@implementation WebBrowserViewController(WKScriptMessageHandler)
+//MARK: - WKScriptMessageHandler
+-(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
+{
+    [self handleLongPress:message.body];
+    
+    if ([message.name isEqualToString: @"OOFJS"]){
+        NSDictionary *dic = (NSDictionary* )message.body;
+        NSString *fun = dic[@"fun"];
+        if (dic == nil || fun == nil){
+            return;
+        }
+        NSObject *obj = dic[@"arg"];
+        if( [obj isKindOfClass:[NSArray class]] ){
+            NSArray *arg = (NSArray *)obj;
+            if ([fun isEqualToString: @"homeList"]  && arg.count == 1){
+                //                self.homeList(arg[0] as? String ?? "")
+            }
+            else if ([fun isEqualToString: @"getPicBrowserArray"] && arg.count > 0){
+                [self getPicBrowserArray:arg[0]];
+            }
+        }else if ([obj isKindOfClass:[NSDictionary class]]){
+            NSDictionary *arg = (NSDictionary *)obj;
+        }
+    }
+    
+    
+    
+}
+
+-(void)handleLongPress:(NSDictionary *)data {
+    
+    NSURL* linkURL = nil;
+    NSString *urlString = data[@"link"];
+    if (urlString.length > 0){
+        linkURL = [[NSURL alloc] initWithString:urlString];
+    }
+    
+    NSURL *imageURL = nil;
+    NSString *imageUrlString = data[@"image"];
+    if (imageUrlString.length > 0){
+        imageURL = [[NSURL alloc] initWithString:imageUrlString];
+    }
+    
+    NSString *linkText = nil;
+    NSString *linkTextTemp = data[@"linkText"];
+    if (linkTextTemp.length > 0){
+        linkText = linkTextTemp;
+    }
+    
+    if (imageURL || linkURL) {
+        LinkElement *element = [LinkElement elementWith:linkURL image:imageURL imageUrls:allImagesUrl linkText:linkText];
+        self.element = element;
+        [self actionSheetElement];
+    }
+    
+    //    if let urlString = data["link"] as? String {
+    //        //            print("urlString: \(urlString)")
+    //        linkURL = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLAllowedCharacterSet())!)
+    //    }
+    //
+    //    var imageURL: URL?
+    //    if let urlString = data["image"] as? String {
+    //        //            print("urlString: \(urlString)")
+    //        imageURL = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLAllowedCharacterSet())!)
+    //    }
+    
+    //    var linkText: String = ""
+    //    if let linkTextTemp = data["linkText"] as? String{
+    //        linkText = linkTextTemp
+    //    }
+    //
+    //    var strCookie = ""
+    //    if let strck = data["cookie"] as? String {
+    //        strCookie = strck
+    //    }
+    
+    //    if linkURL != nil || imageURL != nil {
+    //        let elements =  YYWContextMenuHelp.Elements(link: linkURL, image: imageURL, imageUrls: self.allImagesUrl, linkText: linkText)
+    //        self.contextMenuHelper.contextMenuHelper(elements, cookie:strCookie, gestureRecognizer: MainViewFacade.sharedInstance.currentPageView().tabWebView!.gestureRecognizer)
+    //
+    //    }
+}
+
+-(void)actionSheetElement{
+    
+//    CGPoint touchPoint = [self.longPress locationInView:self.view];
+//     当网页无效时（比如跳转前长按链接），会返回（0，0）
+//    if (CGPointEqualToPoint(touchPoint, CGPointZero)){
+//        return;
+//    }
+    UIAlertController *actionSheetController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    NSString *dialogTitle = nil;
+    LinkElement *element = self.element;
+    NSString* linkText = [element.linkText stringByReplacingOccurrencesOfString:@" " withString:@""];
+    linkText = [linkText stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    linkText = [linkText stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    if (element.link && element.image){
+        dialogTitle = element.link.absoluteString;
+        if ([dialogTitle hasPrefix:@"javascript:"]){//执行js的不需要弹窗
+            return;
+        }
+        [actionSheetController addAction:[self actionOpenInNewTag]];
+        [actionSheetController addAction:[self actionBrowserImage]];
+        [actionSheetController addAction:[self actionCopyLinkUrl:element.link.absoluteString]];
+        if (linkText.length > 0){
+            [actionSheetController addAction:[self actionCopyLinkText:element.linkText]];
+        }
+        [actionSheetController addAction:[self actionSaveImageToPhotos:element.image]];
+        [actionSheetController addAction:[self actionSaveImageToEncryption]];
+    }else if (self.element.link){
+        dialogTitle = self.element.link.absoluteString;
+        if ([dialogTitle hasPrefix:@"javascript:"]){//执行js的不需要弹窗
+            return;
+        }
+        [actionSheetController addAction:[self actionOpenInNewTag]];
+        [actionSheetController addAction:[self actionCopyLinkUrl:element.link.absoluteString]];
+        if (linkText.length > 0){
+            [actionSheetController addAction:[self actionCopyLinkText:element.linkText]];
+        }
+        [actionSheetController addAction:[self actionShare]];
+        dialogTitle = self.element.link.absoluteString;
+    }else if(self.element.image){
+        [actionSheetController addAction:[self actionBrowserImage]];
+        [actionSheetController addAction:[self actionSaveImageToPhotos:element.image]];
+        [actionSheetController addAction:[self actionSaveImageToEncryption]];
+        
+    }
+    [actionSheetController addAction:[self actionCancle]];
+    
+    [self presentViewController:actionSheetController animated:true completion:nil];
+}
+
+-(UIAlertAction *)actionCancle{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionOpenInNewTag{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"在新标签打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [MBProgressHUD showFailImage:@"还没有实现"];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionCopyLinkUrl:(NSString *)url{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"复制链接地址" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIPasteboard* pasteBoard = [UIPasteboard generalPasteboard];
+        pasteBoard.string = url;
+        [MBProgressHUD showSuccessImage:@"已复制"];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionCopyLinkText:(NSString *)txt{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"复制链接文字" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIPasteboard* pasteBoard = [UIPasteboard generalPasteboard];
+        pasteBoard.string = txt;
+        [MBProgressHUD showSuccessImage:@"已复制"];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionShare{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [MBProgressHUD showFailImage:@"还没有实现"];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionSaveImageToPhotos:(NSURL *)imageUrl{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveImageToPhotosOfUrl:imageUrl];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionSaveImageToEncryption{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"添加到加密相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [MBProgressHUD showFailImage:@"还没有实现"];
+    }];
+    return ac;
+}
+-(UIAlertAction *)actionBrowserImage{
+    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"进入看图模式" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"BrowserPicture" sender:self];
+    }];
+    return ac;
+}
+//MARK: - 方法
+
+/// 获取图片地址数组
+-(void)getPicBrowserArray:(NSString *)obj{
+    allImagesUrl = [obj componentsSeparatedByString:@"*|*"];
+}
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;{
+    if (error){
+        [MBProgressHUD showFailImage:error.localizedDescription];
+    }
+}
+-(void)saveImageToPhotosOfUrl:(NSURL *)imageUrl{
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if(status == PHAuthorizationStatusNotDetermined || status == PHAuthorizationStatusAuthorized){
+            NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+            [config setHTTPAdditionalHeaders:@{@"Accept": @"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                               @"Content-Type": @"image/jpeg",
+                                               @"User-Agent": @"Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_4 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13G35",
+                                               @"Cookie": @"" }];
+            NSURLSession * session = [NSURLSession sessionWithConfiguration:config];
+            NSURLSessionDataTask* task = [session dataTaskWithURL:imageUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                if (data != nil ){
+                    [UIImage savePhoto:data];
+                }
+            }];
+            [task resume];
+        }else{
+            [UIAlertController showAlertInViewController:self withTitle:@"无法保存图片" message:@"‘简单上网’没有使用您相册的权限，您需要到设置中授予权限。" cancelButtonTitle:@"算了" destructiveButtonTitle:nil otherButtonTitles:@[@"去设置"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                if (buttonIndex == 1){
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }];
+        }
+    }];
+    
+}
+-(void)saveImageToPhotos:(UIImage *)image{
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if(status == PHAuthorizationStatusNotDetermined || status == PHAuthorizationStatusAuthorized){
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        }else{
+            [UIAlertController showAlertInViewController:self withTitle:@"无法保存图片" message:@"‘简单上网’没有使用您相册的权限，您需要到设置中授予权限。" cancelButtonTitle:@"算了" destructiveButtonTitle:nil otherButtonTitles:@[@"去设置"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                if (buttonIndex == 1){
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }];
+        }
+    }];
+    
+}
++ (void)savePhoto:(NSData*)data {
+    if (data == nil) {
+        return;
+    }
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        if ([UIDevice currentDevice].systemVersion.floatValue < 9.0) {
+            NSString *temporaryFileName = [NSProcessInfo processInfo].globallyUniqueString;
+            NSString *temporaryFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:temporaryFileName];
+            NSURL *temporaryFileURL = [NSURL fileURLWithPath:temporaryFilePath];
+            NSError *error = nil;
+            [data writeToURL:temporaryFileURL options:NSDataWritingAtomic error:&error];
+            if (error == nil) {
+                [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:temporaryFileURL];
+                [[NSFileManager defaultManager] removeItemAtURL:temporaryFileURL error:nil];
+            }
+        } else {
+            PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+            [(PHAssetCreationRequest *)request addResourceWithType:PHAssetResourceTypePhoto
+                                                              data:data
+                                                           options:nil];
+        }
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [MBProgressHUD showImage:kMBProgressHUDImageFail text:NSLocalizedString(@"保存失败", nil)];
+            }else{
+                [MBProgressHUD showImage:kMBProgressHUDImageSuccess text:NSLocalizedString(@"已保存到手机相册", nil)];
+            }
+            
+        });
+    }];
+}
+@end
+

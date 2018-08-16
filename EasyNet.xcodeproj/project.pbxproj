@@ -22,6 +22,10 @@
 		4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */; };
 		4776E93C20FDC22D00D419B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E93B20FDC22D00D419B1 /* main.m */; };
 		47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */; };
+		47BD202821254AA400C197F4 /* LinkElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202721254AA400C197F4 /* LinkElement.m */; };
+		47BD202B21255F1A00C197F4 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */; };
+		47BD202F2125671400C197F4 /* ENWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202E2125671400C197F4 /* ENWebView.m */; };
+		47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD2031212572FB00C197F4 /* UIImage+SavingData.m */; };
 		47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */; };
 		47CBD5D92123CE4500468705 /* BrowserBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47CBD5D82123CE4500468705 /* BrowserBundle.bundle */; };
 		47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5DC2123D0DF00468705 /* TabMabager.m */; };
@@ -57,6 +61,14 @@
 		4776E93B20FDC22D00D419B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabsListViewController.h; sourceTree = "<group>"; };
 		47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabsListViewController.m; sourceTree = "<group>"; };
+		47BD202621254AA400C197F4 /* LinkElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkElement.h; sourceTree = "<group>"; };
+		47BD202721254AA400C197F4 /* LinkElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkElement.m; sourceTree = "<group>"; };
+		47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
+		47BD202A21255F1A00C197F4 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
+		47BD202D2125671400C197F4 /* ENWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENWebView.h; sourceTree = "<group>"; };
+		47BD202E2125671400C197F4 /* ENWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENWebView.m; sourceTree = "<group>"; };
+		47BD2030212572FB00C197F4 /* UIImage+SavingData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+SavingData.h"; sourceTree = "<group>"; };
+		47BD2031212572FB00C197F4 /* UIImage+SavingData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SavingData.m"; sourceTree = "<group>"; };
 		47CBD5D32123CA7E00468705 /* BrowserTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabViewController.h; sourceTree = "<group>"; };
 		47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabViewController.m; sourceTree = "<group>"; };
 		47CBD5D82123CE4500468705 /* BrowserBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BrowserBundle.bundle; sourceTree = "<group>"; };
@@ -102,6 +114,8 @@
 		476D41872122923D006799E8 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				47BD202C212566F900C197F4 /* Views */,
+				47BD2025212536AC00C197F4 /* Models */,
 				47CBD5DA2123D0CC00468705 /* Manager */,
 				476D419A2122D184006799E8 /* WebBrowserViewController.h */,
 				476D419B2122D184006799E8 /* WebBrowserViewController.m */,
@@ -155,6 +169,8 @@
 		476D41A02122EF88006799E8 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				47BD202A21255F1A00C197F4 /* MBProgressHUD+Utility.h */,
+				47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */,
 				47F2E90B21241D4300B071BF /* UIAlertController+Blocks.h */,
 				47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */,
 			);
@@ -203,6 +219,24 @@
 			path = EasyNet;
 			sourceTree = "<group>";
 		};
+		47BD2025212536AC00C197F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47BD202621254AA400C197F4 /* LinkElement.h */,
+				47BD202721254AA400C197F4 /* LinkElement.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47BD202C212566F900C197F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47BD202D2125671400C197F4 /* ENWebView.h */,
+				47BD202E2125671400C197F4 /* ENWebView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		47CBD5DA2123D0CC00468705 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +254,8 @@
 				47CBD5E02123D57600468705 /* NSString+EasyNet.m */,
 				47CBD5E22123D77500468705 /* Preference.h */,
 				47CBD5E32123D77500468705 /* Preference.m */,
+				47BD2030212572FB00C197F4 /* UIImage+SavingData.h */,
+				47BD2031212572FB00C197F4 /* UIImage+SavingData.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -374,17 +410,21 @@
 			files = (
 				476D41922122C26E006799E8 /* MenuCollectionViewCell.m in Sources */,
 				4776E93120FDC22D00D419B1 /* ViewController.m in Sources */,
+				47BD202821254AA400C197F4 /* LinkElement.m in Sources */,
 				47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */,
 				47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */,
 				47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */,
+				47BD202B21255F1A00C197F4 /* MBProgressHUD+Utility.m in Sources */,
 				476D41952122C3C2006799E8 /* MenuItemsCollectionViewController.m in Sources */,
 				47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */,
 				4776E93C20FDC22D00D419B1 /* main.m in Sources */,
 				47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */,
 				4776E92E20FDC22D00D419B1 /* AppDelegate.m in Sources */,
 				47CBD5E42123D77500468705 /* Preference.m in Sources */,
+				47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */,
 				476D418A2122B6BD006799E8 /* MenuViewController.m in Sources */,
 				476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */,
+				47BD202F2125671400C197F4 /* ENWebView.m in Sources */,
 				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
 				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
 				47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */,
@@ -525,11 +565,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42FQR4EVHR;
 				INFOPLIST_FILE = EasyNet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyw.ios.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -541,11 +581,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42FQR4EVHR;
 				INFOPLIST_FILE = EasyNet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyw.ios.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
