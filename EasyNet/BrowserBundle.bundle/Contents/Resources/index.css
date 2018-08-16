@@ -1,0 +1,1275 @@
+/*index.css*/
+
+@media screen and (max-width:480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width:480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+html,
+body {
+  background: #fff;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+}
+
+body,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+input {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+li img {
+  display: block;
+}
+
+input {
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+a,
+a:visited,
+a:link {
+  font-size: inherit;
+  text-decoration: none;
+  color: #6e6e6e;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "microsoft yahei", "Heiti SC", Simsun, Tahoma, Geneva;
+  width: 100%;
+  min-width: 320px;
+  margin: auto;
+  color: #555;
+}
+
+div,
+input {
+  box-sizing: border-box;
+}
+
+.clear {
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:after,
+.allSites:after,
+.weatherbox:after,
+.iweather:after,
+.levbox ul:after,
+.lifeinfo ul li:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  content: ".";
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  clear: both;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: url(../images/loading.gif) no-repeat;
+  background-size: 30px 30px;
+}
+
+
+/*头部天气*/
+
+.iweather {
+  padding: 2rem 15px 2rem;
+}
+
+.iweather .img {
+  display: inline-block;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-right: .3rem;
+  vertical-align: middle;
+}
+
+.iweather .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.iweather .cc {
+  font-size: 2.3rem;
+  display: inline-block;
+  margin-right: .6rem;
+  vertical-align: middle;
+  color: #676767;
+}
+
+.iweather .dt {
+  font-size: 1rem;
+  display: inline-block;
+  padding-left: .8rem;
+  vertical-align: middle;
+  border-left: 1px solid #e0e0e0;
+}
+
+.iweather .dt p {
+  line-height: 1.3rem;
+  height: 1.3rem;
+}
+
+.iweather .dt span {
+  margin-right: 6px;
+}
+
+.iweather .dt .qu {
+  display: inline-block;
+  padding: 1px 4px;
+  color: #fff;
+  border-radius: 3px;
+  background: #0fcb61;
+}
+
+.iweather .dt span.g1 {
+  background: #43bd00;
+}
+
+.iweather .dt span.g2 {
+  background: #ffba00;
+}
+
+.iweather .dt span.g3 {
+  background: #ff8400;
+}
+
+.iweather .dt span.g4 {
+  background: #f00;
+}
+
+.iweather .dt span.g5 {
+  background: #b81f43;
+}
+
+.iweather .dt span.g6 {
+  background: #6b0315;
+}
+
+
+/*主要四格列表*/
+
+.isites {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.isites .complete {
+  font-size: 1.2rem;
+  line-height: 3rem;
+  position: fixed;
+  bottom: -3rem;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  transition: all .5s ease-in-out 0s;
+  text-align: center;
+  color: #47aaff;
+  background: #f5f5f5;
+}
+
+.isites .cp_on {
+  bottom: 1rem;
+}
+
+.isites ul {
+  padding: 0 1rem;
+}
+
+.isites ul li {
+  float: left;
+  width: 25%;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.isites ul li a {
+  display: block;
+}
+
+.isites li:nth-child(4n+1) {
+  clear: left;
+}
+
+.isites ul li .img {
+  position: relative;
+  display: inline-block;
+  width: 55%;
+  max-width: 60px;
+}
+
+.isites ul li .img img {
+  display: block;
+  width: 100%;
+}
+
+.isites ul li p {
+  font-size: 1rem;
+  overflow: hidden;
+  margin-top: .3rem;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.isites ul li.custom p {
+  padding-right: .8rem;
+}
+
+.isites ul li p b {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: #47aaff;
+}
+
+.isites .allpage {
+  width: 1000%;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.isites .page {
+  display: inline-block;
+  width: 10%;
+  padding-top: 2rem;
+  vertical-align: top;
+}
+
+.isites #firstPage {
+  padding: 0;
+}
+
+.isites ul li .img .d {
+  position: absolute;
+  z-index: 5;
+  top: -8px;
+  left: -8px;
+  display: none;
+  width: 18px;
+  height: 18px;
+  background: url(icon.png) no-repeat 0 0;
+  background-size: 36px 18px;
+}
+
+.isites ul li.del .img .d {
+  display: block;
+}
+
+.isites li .img .s {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  display: none;
+  width: 18px;
+  height: 18px;
+  background: url(icon.png) no-repeat -18px 0;
+  background-size: 36px 18px;
+}
+
+.isites li.select .img .s {
+  display: block;
+}
+
+.isites .ps {
+  position: fixed;
+  z-index: 2;
+  bottom: .1rem;
+  left: 0;
+  width: 100%;
+  /* height: 1rem; */
+  text-align: center;
+}
+
+.isites .ps b {
+  display: inline-block;
+  overflow: hidden;
+  width: 3px;
+  height: 3px;
+  margin: 0 2px;
+  transition: all .5s ease-in-out 0s;
+  border-radius: 3px;
+  background: #b9b9b9;
+}
+
+.isites .ps b.on {
+  width: 6px;
+  background: #47aaff;
+}
+
+.shade {
+  position: absolute;
+  left: 1rem;
+  display: block;
+  width: 80%;
+  height: 1rem;
+}
+
+.t_shade {
+  top: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0));
+}
+
+.b_shade {
+  bottom: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .9));
+}
+
+
+/*顶部条*/
+
+.toptag {
+  font-size: 1.5rem;
+  line-height: 47px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  text-align: center;
+  color: #fff;
+  background: #47aaff;
+}
+
+.toptag .back {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  width: .9rem;
+  height: .9rem;
+  margin-top: -.5rem;
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.toptag .sav {
+  font-size: 1rem;
+  position: absolute;
+  top: 2px;
+  right: 15px;
+  display: block;
+  color: #fff;
+}
+
+
+/*所有标签列表*/
+
+.allSites .manual {
+  margin: 1rem 0 .5rem;
+  padding: 0 15px;
+}
+
+.allSites .manual input {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  color: #333;
+  border: none;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: .4rem;
+  background: #eee;
+}
+
+.allSites .manual input[type="submit"] {
+  color: #fff;
+  background: #47aaff;
+}
+
+.allSites .isites {
+  position: relative;
+  padding-bottom: 0;
+}
+
+.allSites .isites ul {
+  overflow: auto;
+  box-sizing: border-box;
+  padding-top: 1rem;
+}
+
+.allSites .isites li {
+  width: 20%;
+}
+
+.allSites .isites li .img {
+  width: 65%;
+}
+
+.allSites .isites li:nth-child(4n+1) {
+  clear: left;
+}
+
+.allSites .isites .sorts {
+  position: absolute;
+  top: 1rem;
+  right: 12px;
+  width: 40px;
+}
+
+.allSites .isites .sorts a {
+  font-size: 1.2rem;
+  line-height: 2.6rem;
+  display: block;
+  height: 2.6rem;
+  text-align: center;
+}
+
+.allSites .isites .sorts a.on {
+  color: #47aaff;
+}
+
+
+/*生活服务*/
+
+.livepage .isites {
+  padding-bottom: 1rem;
+}
+
+.searchbox {
+  position: relative;
+  overflow: hidden;
+  width: 82%;
+  max-width: 800px;
+  height: 2.8rem;
+  margin: 2rem auto 2.3rem;
+  text-align: center;
+}
+
+.searchbox .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.searchbox .img img {
+  width: 100%;
+}
+
+.searchbox .ipbox {
+  width: 100%;
+  padding: .15rem 6rem .15rem 3.7rem;
+}
+
+.searchbox input {
+  line-height: 2.5rem;
+  float: left;
+  height: 2.5rem;
+}
+
+.searchbox input[type="text"] {
+  font-size: 1rem;
+  width: 100%;
+  padding-left: 1rem;
+  border: 1px solid #e0e0e0;
+  border-right: none;
+  border-top-left-radius: .4rem;
+  border-bottom-left-radius: .4rem;
+  background-color: #fff;
+}
+
+.searchbox input[type="submit"] {
+  font-size: 1.16rem;
+  position: absolute;
+  top: .15rem;
+  right: 0;
+  width: 6rem;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-top-right-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+  background-color: #47aaff;
+}
+
+
+/*天气详情页*/
+
+.weatherbox {
+  background: url(../images/weatherbg/99.jpg) no-repeat;
+  background-size: 100%, 100%;
+}
+
+.weatherbox,
+.weatherbox p,
+.weatherbox .iweather .cc,
+.weatherbox a {
+  color: #fff;
+}
+
+.weatherbox .toptag {
+  padding: 1rem 15px 0;
+  background: none;
+}
+
+.weatherbox .toptag .back {
+  margin-top: .5rem;
+}
+
+.weatherbox .iweather {
+  padding-top: 2rem;
+}
+
+.mycitybox {
+  overflow: hidden;
+  padding-top: .7rem;
+  vertical-align: middle;
+}
+
+.mycitybox b,
+.localbox b {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+  background: url(../images/icon2.png) no-repeat -3.2rem 0;
+  background-size: 6.4rem 1.6rem;
+}
+
+.mycitybox .mycity {
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+
+.wea_icon {
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+.wea_icon ul {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 4.2rem;
+}
+
+.wea_icon ul li {
+  position: absolute;
+  float: left;
+  box-sizing: border-box;
+  width: auto;
+  margin-left: -.4rem;
+}
+
+.wea_icon ul li .img,
+.wea_icon ul li .img img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.wea_icon ul li p {
+  text-align: center;
+}
+
+.wea_icon ul li:nth-child(5n+1) {
+  left: 4%;
+}
+
+.wea_icon ul li:nth-child(5n+2) {
+  left: 26%;
+}
+
+.wea_icon ul li:nth-child(5n+3) {
+  left: 47%;
+}
+
+.wea_icon ul li:nth-child(5n+4) {
+  left: 69%;
+}
+
+.wea_icon ul li:nth-child(5n) {
+  left: 91%;
+}
+
+.weatherbox a.day15 {
+  font-size: 1.3rem;
+  display: block;
+  width: 100%;
+  margin: 2rem 0 2.5rem;
+  text-align: center;
+}
+
+.mbg {
+  width: 100%;
+  height: 1.4rem;
+  background-color: #f0efed;
+}
+
+.navtitle {
+  font-size: 1.4rem;
+  margin: 1rem 0 0 1rem;
+  color: #47aaff;
+}
+
+#air_qua {
+  font-size: 2rem;
+  width: 100%;
+  margin: .8rem 0 1.2rem 0;
+  text-align: center;
+}
+
+.levbox .g1 {
+  color: #43bd00;
+}
+
+.levbox .g2 {
+  color: #ffba00;
+}
+
+.levbox .g3 {
+  color: #ff8400;
+}
+
+.levbox .g4 {
+  color: #f00;
+}
+
+.levbox .g5 {
+  color: #b81f43;
+}
+
+.levbox .g6 {
+  color: #6b0315;
+}
+
+.levbox {
+  overflow: hidden;
+  width: 100%;
+}
+
+.levbox ul {
+  padding: 0 1.2rem;
+}
+
+.levbox ul.lev li {
+  float: left;
+  width: 16.66%;
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+
+.levbox {
+  overflow: hidden;
+  width: 100%;
+}
+
+.levbox ul li {
+  box-sizing: border-box;
+}
+
+.levbox ul.block li {
+  float: left;
+  width: 16.66%;
+  height: 1rem;
+  margin-bottom: 1.1rem;
+  padding: 0 .5px;
+}
+
+.levbox ul.block li span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.levbox ul.block li.c1 span {
+  background: -moz-linear-gradient(left, #8ded2e, #f9ef01);
+  background: -webkit-linear-gradient(left, #8ded2e, #f9ef01);
+  background: -o-linear-gradient(left, #8ded2e, #f9ef01);
+}
+
+.levbox ul.block li.c2 span {
+  background: -moz-linear-gradient(left, #f9ef01, #ffa906);
+  background: -webkit-linear-gradient(left, #f9ef01, #ffa906);
+  background: -o-linear-gradient(left, #f9ef01, #ffa906);
+}
+
+.levbox ul.block li.c3 span {
+  background: -moz-linear-gradient(left, #ffa906, #ff4b1a);
+  background: -webkit-linear-gradient(left, #ffa906, #ff4b1a);
+  background: -o-linear-gradient(left, #ffa906, #ff4b1a);
+}
+
+.levbox ul.block li.c4 span {
+  background: -moz-linear-gradient(left, #ff4b1a, #cb223d);
+  background: -webkit-linear-gradient(left, #ff4b1a, #cb223d);
+  background: -o-linear-gradient(left, #ff4b1a, #cb223d);
+}
+
+.levbox ul.block li.c5 span {
+  background: -moz-linear-gradient(left, #cb223d, #8c1445);
+  background: -webkit-linear-gradient(left, #cb223d, #8c1445);
+  background: -o-linear-gradient(left, #cb223d, #8c1445);
+}
+
+.levbox ul.block li.c6 span {
+  background: -moz-linear-gradient(left, #8c1445, #6b0313);
+  background: -webkit-linear-gradient(left, #8c1445, #6b0313);
+  background: -o-linear-gradient(left, #8c1445, #6b0313);
+}
+
+.levbox ul.num {
+  position: relative;
+  margin-left: -.7rem;
+}
+
+.levbox ul.num li {
+  float: left;
+  width: 16.66%;
+  height: 1rem;
+  margin-bottom: 2rem;
+}
+
+.levbox ul.num li.first {
+  padding-left: .6rem;
+}
+
+.levbox ul.num li.last {
+  position: absolute;
+  top: 0;
+  right: .4rem;
+  width: auto;
+}
+
+.line1 {
+  width: 100%;
+  height: 1px;
+  background-color: #f0efed;
+}
+
+.tqinfo {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.tqinfo ul {
+  padding: 0 1rem;
+}
+
+.tqinfo ul li {
+  font-size: 1.2rem;
+  float: left;
+  width: 50%;
+  margin-top: 1rem;
+  color: #6e6e6e;
+}
+
+.lifeinfo {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.lifeinfo ul {
+  padding: 0 1rem;
+}
+
+.lifeinfo ul li {
+  font-size: 1.2rem;
+  float: left;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 50%;
+  margin: 1.2rem 0;
+  padding: 0 1rem;
+  text-align: center;
+  color: #6e6e6e;
+}
+
+.lifeinfo ul li:nth-child(2n+1) {
+  clear: left;
+}
+
+.lifeinfo ul li:nth-child(2n) {
+  clear: right;
+}
+
+.lifeinfo ul li p {
+  line-height: 1.8rem;
+  width: 100%;
+  text-align: center;
+}
+
+.lifeinfo ul li p.ti {
+  color: #222;
+}
+
+.lifeinfo ul li .img {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 32%;
+  max-width: 90px;
+  margin-bottom: .5rem;
+}
+
+.lifeinfo ul li .img span {
+  display: block;
+  overflow: hidden;
+  width: 800%;
+  height: 0;
+  margin: 0;
+  padding: 100% 0 0;
+  background: url(../images/airqua.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.lifeinfo ul li .img span.n2 {
+  margin-left: -100%;
+}
+
+.lifeinfo ul li .img span.n3 {
+  margin-left: -200%;
+}
+
+.lifeinfo ul li .img span.n4 {
+  margin-left: -300%;
+}
+
+.lifeinfo ul li .img span.n5 {
+  margin-left: -400%;
+}
+
+.lifeinfo ul li .img span.n6 {
+  margin-left: -500%;
+}
+
+.lifeinfo ul li .img span.n7 {
+  margin-left: -600%;
+}
+
+.lifeinfo ul li .img span.n8 {
+  margin-left: -700%;
+}
+
+#MoreWeather {
+  padding: 0 15px;
+}
+
+
+/*城市选择*/
+
+.contbox {
+  overflow: hidden;
+  width: 30rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.csearch {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background-color: #e0e0e0;
+}
+
+.csearch .csbar {
+  transition: all .5s ease-in-out 0s;
+}
+
+.csearch b {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  width: 1.8rem;
+  height: 1.8rem;
+  transition: all .5s ease-in-out 0s;
+  background: url(../images/icon2.png) no-repeat 0 0;
+  background-size: 7.2rem 1.8rem;
+}
+
+.csearch b.sicon {
+  top: 1.6rem;
+  left: 1.8rem;
+}
+
+.csearch .scitys {
+  font-size: 1.2rem;
+  line-height: 3rem;
+  width: 100%;
+  height: 3rem;
+  padding-left: 3rem;
+  transition: all .5s ease-in-out 0s;
+  color: #c1c1c1;
+  border: none;
+  border-radius: .4rem;
+}
+
+.csearch .focus .scitys {
+  padding-left: .8rem;
+}
+
+.csearch b.sdel {
+  top: 1.6rem;
+  right: -28px;
+  background-position: -1.8rem 0;
+}
+
+.csearch .sreset {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 1.6rem;
+  right: -8rem;
+  width: 6rem;
+  transition: all .5s ease-in-out 0s;
+  text-align: center;
+}
+
+.csearch .focus {
+  padding-right: 6rem;
+}
+
+.csearch .focus .sdel {
+  right: 8.2rem;
+}
+
+.csearch .focus .sreset {
+  right: 1.2rem;
+}
+
+.csearch .focus .sicon {
+  left: -25px;
+}
+
+.localbox {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  overflow: hidden;
+  padding: .6rem 1rem;
+  cursor: pointer;
+  color: #6e6e6e;
+}
+
+.localbox b {
+  width: 1.8rem;
+  height: 1.8rem;
+  vertical-align: -20%;
+  background-position: -5.4rem 0;
+  background-size: 7.2rem 1.8rem;
+}
+
+.citysbox {
+  overflow: hidden;
+  width: 100%;
+}
+
+.citysbox .cityslist {
+  position: relative;
+  width: 95%;
+}
+
+.citysbox .cityslist dl dt {
+  font-size: 1.1rem;
+  line-height: 2rem;
+  height: 2rem;
+  padding-left: .8rem;
+  color: #6e6e6e;
+  background-color: #e0e0e0;
+}
+
+.citysbox .cityslist dl dd {
+  font-size: 1.4rem;
+  line-height: 3rem;
+  height: 3rem;
+  padding-left: .8rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.citysbox .rnav {
+  position: fixed;
+  right: 0;
+  width: 5%;
+  text-align: center;
+}
+
+.citysbox .rnav a {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  display: block;
+  height: 2rem;
+  color: #47aaff;
+}
+
+
+/*手机号查询结果*/
+
+.result p {
+  font-size: 1rem;
+  line-height: 1.7rem;
+  position: relative;
+  margin: 0 1.5rem;
+  padding-left: 5rem;
+}
+
+.result p span {
+  line-height: 1.7rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.7rem;
+}
+
+.result .ot {
+  margin: 1rem 0 0;
+  padding: 1rem 1.5rem 0;
+  border-top: 1px solid #f6f6f6;
+}
+
+
+/*产品介绍页*/
+
+.IntroTop {
+  padding: .8rem 1rem 1.2rem;
+  background: #47aaff;
+}
+
+.IntroTop img,
+.IntroT p {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.IntroTop img {
+  width: 5.4rem;
+  height: 5.4rem;
+  margin-right: 1.2rem;
+}
+
+.IntroTop p {
+  font-size: 1.3rem;
+  display: inline-block;
+  color: #fff;
+}
+
+.IntroT {
+  font-size: 1.3rem;
+  line-height: 4rem;
+  height: 4rem;
+  padding: .16rem 1rem 0;
+  color: #222;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.IntroGl {
+  padding: 0 1rem;
+}
+
+.IntroGl li {
+  position: relative;
+  height: 4.8rem;
+  padding-left: 3.4rem;
+}
+
+.IntroGl li h2 {
+  font-size: 2.1rem;
+  line-height: 3.8rem;
+  position: absolute;
+  top: .5rem;
+  left: 0;
+  height: 3.8rem;
+  color: #47aaff;
+}
+
+.IntroGl li h3 {
+  font-size: 1.3rem;
+  padding-top: .6rem;
+  color: #5d5d5d;
+}
+
+.IntroGl li p {
+  font-size: 1rem;
+  color: #afafaf;
+}
+
+.IntroAs {
+  padding: 0 1rem;
+}
+
+.IntroAs li {
+  margin: 1rem 0 .5rem;
+}
+
+.IntroAs li h2 {
+  font-size: 1.3rem;
+  display: inline-block;
+  padding-top: .5rem;
+  vertical-align: top;
+  color: #47aaff;
+}
+
+.IntroAs li p {
+  font-size: 1.3rem;
+  position: relative;
+  display: inline-block;
+  max-width: 65%;
+  margin: 0 1rem;
+  padding: .3rem .7rem;
+  text-align: left;
+  color: #5d5d5d;
+  border: 1px solid #dadada;
+  border-radius: .3rem;
+  background: #ededed;
+}
+
+.IntroAs li p b {
+  position: absolute;
+  top: .8rem;
+  left: -.7rem;
+  width: 0;
+  height: 0;
+  border-top: .45rem solid transparent;
+  border-right: .8rem solid #dadada;
+  border-bottom: .45rem solid transparent;
+}
+
+.IntroAs li p b.bg {
+  left: -.6rem;
+  border-right-color: #ededed;
+}
+
+.IntroAs li.as {
+  text-align: right;
+}
+
+.IntroAs li.as p {
+  color: #fff;
+  border-color: #47aaff;
+  background: #47aaff;
+}
+
+.IntroAs li.as p b {
+  left: 100%;
+  border-right: none;
+  border-left: .8rem solid #47aaff;
+}
+
+.alertTip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.alertTip .box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 20rem;
+  height: 8.5rem;
+  margin: auto;
+  box-shadow: 0 0 1rem .1rem #ccc;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: .5rem;
+  padding: 2rem;
+}
+
+.alertTip .content {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.alertTip .img-tip {
+  width: 100%;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+}
+
+.alertTip .img-tip.right {
+  background-image: url(tip_right.png);
+}
+
+.alertTip .img-tip.error {
+  background-image: url(tip_error.png);
+}
+
+.alertTip .img-tip.warn {
+  background-image: url(tip_warn.png);
+}
+
+.alertTip .sure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -40px;
+  left: 0;
+  width: 50px;
+  height: 20px;
+  margin: auto;
+}

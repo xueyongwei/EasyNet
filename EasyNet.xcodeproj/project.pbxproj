@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C6F24C2DC82EE2C3AC62829 /* libPods-EasyNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C232B20034CC4E27ACB264DA /* libPods-EasyNet.a */; };
+		476D418A2122B6BD006799E8 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476D41892122B6BD006799E8 /* MenuViewController.m */; };
+		476D418C2122B739006799E8 /* profile2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 476D418B2122B739006799E8 /* profile2.jpg */; };
+		476D41922122C26E006799E8 /* MenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 476D41912122C26E006799E8 /* MenuCollectionViewCell.m */; };
+		476D41952122C3C2006799E8 /* MenuItemsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476D41942122C3C2006799E8 /* MenuItemsCollectionViewController.m */; };
+		476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476D41982122CBD1006799E8 /* SettingSwitchViewController.m */; };
+		476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476D419B2122D184006799E8 /* WebBrowserViewController.m */; };
+		476D419F2122EAFE006799E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476D419E2122EAFE006799E8 /* WebKit.framework */; };
+		4776E92E20FDC22D00D419B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E92D20FDC22D00D419B1 /* AppDelegate.m */; };
+		4776E93120FDC22D00D419B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E93020FDC22D00D419B1 /* ViewController.m */; };
+		4776E93420FDC22D00D419B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93220FDC22D00D419B1 /* Main.storyboard */; };
+		4776E93620FDC22D00D419B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93520FDC22D00D419B1 /* Assets.xcassets */; };
+		4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */; };
+		4776E93C20FDC22D00D419B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E93B20FDC22D00D419B1 /* main.m */; };
+		47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */; };
+		47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */; };
+		47CBD5D92123CE4500468705 /* BrowserBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47CBD5D82123CE4500468705 /* BrowserBundle.bundle */; };
+		47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5DC2123D0DF00468705 /* TabMabager.m */; };
+		47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E02123D57600468705 /* NSString+EasyNet.m */; };
+		47CBD5E42123D77500468705 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E32123D77500468705 /* Preference.m */; };
+		47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E72123D9EB00468705 /* ENUserAgent.m */; };
+		47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5EC2124086F00468705 /* SearchViewController.m */; };
+		47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		476D41882122B6BD006799E8 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		476D41892122B6BD006799E8 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		476D418B2122B739006799E8 /* profile2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile2.jpg; sourceTree = "<group>"; };
+		476D41902122C26E006799E8 /* MenuCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCollectionViewCell.h; sourceTree = "<group>"; };
+		476D41912122C26E006799E8 /* MenuCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCollectionViewCell.m; sourceTree = "<group>"; };
+		476D41932122C3C2006799E8 /* MenuItemsCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuItemsCollectionViewController.h; sourceTree = "<group>"; };
+		476D41942122C3C2006799E8 /* MenuItemsCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItemsCollectionViewController.m; sourceTree = "<group>"; };
+		476D41972122CBD1006799E8 /* SettingSwitchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSwitchViewController.h; sourceTree = "<group>"; };
+		476D41982122CBD1006799E8 /* SettingSwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingSwitchViewController.m; sourceTree = "<group>"; };
+		476D419A2122D184006799E8 /* WebBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
+		476D419B2122D184006799E8 /* WebBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebBrowserViewController.m; sourceTree = "<group>"; };
+		476D419E2122EAFE006799E8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		4776E92920FDC22D00D419B1 /* EasyNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4776E92C20FDC22D00D419B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4776E92D20FDC22D00D419B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4776E92F20FDC22D00D419B1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4776E93020FDC22D00D419B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4776E93320FDC22D00D419B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4776E93520FDC22D00D419B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4776E93820FDC22D00D419B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4776E93A20FDC22D00D419B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4776E93B20FDC22D00D419B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabsListViewController.h; sourceTree = "<group>"; };
+		47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabsListViewController.m; sourceTree = "<group>"; };
+		47CBD5D32123CA7E00468705 /* BrowserTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabViewController.h; sourceTree = "<group>"; };
+		47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabViewController.m; sourceTree = "<group>"; };
+		47CBD5D82123CE4500468705 /* BrowserBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BrowserBundle.bundle; sourceTree = "<group>"; };
+		47CBD5DB2123D0DF00468705 /* TabMabager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabMabager.h; sourceTree = "<group>"; };
+		47CBD5DC2123D0DF00468705 /* TabMabager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabMabager.m; sourceTree = "<group>"; };
+		47CBD5DF2123D57600468705 /* NSString+EasyNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyNet.h"; sourceTree = "<group>"; };
+		47CBD5E02123D57600468705 /* NSString+EasyNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyNet.m"; sourceTree = "<group>"; };
+		47CBD5E22123D77500468705 /* Preference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
+		47CBD5E32123D77500468705 /* Preference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
+		47CBD5E62123D9EB00468705 /* ENUserAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENUserAgent.h; sourceTree = "<group>"; };
+		47CBD5E72123D9EB00468705 /* ENUserAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENUserAgent.m; sourceTree = "<group>"; };
+		47CBD5EB2124086F00468705 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		47CBD5EC2124086F00468705 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		47F2E90B21241D4300B071BF /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
+		82331AF4383670AF6E4E3B74 /* Pods-EasyNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyNet.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet.release.xcconfig"; sourceTree = "<group>"; };
+		C232B20034CC4E27ACB264DA /* libPods-EasyNet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyNet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7CF2843D8BC6E3E4DC936C8 /* Pods-EasyNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyNet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4776E92620FDC22D00D419B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				476D419F2122EAFE006799E8 /* WebKit.framework in Frameworks */,
+				0C6F24C2DC82EE2C3AC62829 /* libPods-EasyNet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		372A8B41752065D01F321D29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7CF2843D8BC6E3E4DC936C8 /* Pods-EasyNet.debug.xcconfig */,
+				82331AF4383670AF6E4E3B74 /* Pods-EasyNet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		476D41872122923D006799E8 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5DA2123D0CC00468705 /* Manager */,
+				476D419A2122D184006799E8 /* WebBrowserViewController.h */,
+				476D419B2122D184006799E8 /* WebBrowserViewController.m */,
+				47CBD5D32123CA7E00468705 /* BrowserTabViewController.h */,
+				47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */,
+				47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */,
+				47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		476D418D2122C242006799E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				476D41902122C26E006799E8 /* MenuCollectionViewCell.h */,
+				476D41912122C26E006799E8 /* MenuCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		476D418F2122C253006799E8 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				476D418D2122C242006799E8 /* Views */,
+				476D41882122B6BD006799E8 /* MenuViewController.h */,
+				476D41892122B6BD006799E8 /* MenuViewController.m */,
+				476D41932122C3C2006799E8 /* MenuItemsCollectionViewController.h */,
+				476D41942122C3C2006799E8 /* MenuItemsCollectionViewController.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		476D41962122CBA1006799E8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				476D41972122CBD1006799E8 /* SettingSwitchViewController.h */,
+				476D41982122CBD1006799E8 /* SettingSwitchViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		476D419D2122EAFE006799E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				476D419E2122EAFE006799E8 /* WebKit.framework */,
+				C232B20034CC4E27ACB264DA /* libPods-EasyNet.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		476D41A02122EF88006799E8 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				47F2E90B21241D4300B071BF /* UIAlertController+Blocks.h */,
+				47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4776E92020FDC22D00D419B1 = {
+			isa = PBXGroup;
+			children = (
+				4776E92B20FDC22D00D419B1 /* EasyNet */,
+				4776E92A20FDC22D00D419B1 /* Products */,
+				476D419D2122EAFE006799E8 /* Frameworks */,
+				372A8B41752065D01F321D29 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		4776E92A20FDC22D00D419B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4776E92920FDC22D00D419B1 /* EasyNet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4776E92B20FDC22D00D419B1 /* EasyNet */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5EA2124086100468705 /* Search */,
+				47CBD5DE2123D53D00468705 /* Global */,
+				476D41A02122EF88006799E8 /* Vendor */,
+				476D41962122CBA1006799E8 /* Setting */,
+				476D418F2122C253006799E8 /* Menu */,
+				476D41872122923D006799E8 /* WebView */,
+				4776E92C20FDC22D00D419B1 /* AppDelegate.h */,
+				4776E92D20FDC22D00D419B1 /* AppDelegate.m */,
+				4776E92F20FDC22D00D419B1 /* ViewController.h */,
+				4776E93020FDC22D00D419B1 /* ViewController.m */,
+				4776E93220FDC22D00D419B1 /* Main.storyboard */,
+				476D418B2122B739006799E8 /* profile2.jpg */,
+				4776E93520FDC22D00D419B1 /* Assets.xcassets */,
+				47CBD5D82123CE4500468705 /* BrowserBundle.bundle */,
+				4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */,
+				4776E93A20FDC22D00D419B1 /* Info.plist */,
+				4776E93B20FDC22D00D419B1 /* main.m */,
+			);
+			path = EasyNet;
+			sourceTree = "<group>";
+		};
+		47CBD5DA2123D0CC00468705 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5DB2123D0DF00468705 /* TabMabager.h */,
+				47CBD5DC2123D0DF00468705 /* TabMabager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		47CBD5DE2123D53D00468705 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5E52123D9D900468705 /* Models */,
+				47CBD5DF2123D57600468705 /* NSString+EasyNet.h */,
+				47CBD5E02123D57600468705 /* NSString+EasyNet.m */,
+				47CBD5E22123D77500468705 /* Preference.h */,
+				47CBD5E32123D77500468705 /* Preference.m */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		47CBD5E52123D9D900468705 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5E62123D9EB00468705 /* ENUserAgent.h */,
+				47CBD5E72123D9EB00468705 /* ENUserAgent.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47CBD5EA2124086100468705 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				47CBD5EB2124086F00468705 /* SearchViewController.h */,
+				47CBD5EC2124086F00468705 /* SearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4776E92820FDC22D00D419B1 /* EasyNet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4776E93F20FDC22D00D419B1 /* Build configuration list for PBXNativeTarget "EasyNet" */;
+			buildPhases = (
+				8BA3084F6575DFE609900F3E /* [CP] Check Pods Manifest.lock */,
+				4776E92520FDC22D00D419B1 /* Sources */,
+				4776E92620FDC22D00D419B1 /* Frameworks */,
+				4776E92720FDC22D00D419B1 /* Resources */,
+				0FDE05726B0D6CDA2852B0BB /* [CP] Embed Pods Frameworks */,
+				6731E56A168C7D8057DB350B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyNet;
+			productName = EasyNet;
+			productReference = 4776E92920FDC22D00D419B1 /* EasyNet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4776E92120FDC22D00D419B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "薛永伟";
+				TargetAttributes = {
+					4776E92820FDC22D00D419B1 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4776E92420FDC22D00D419B1 /* Build configuration list for PBXProject "EasyNet" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4776E92020FDC22D00D419B1;
+			productRefGroup = 4776E92A20FDC22D00D419B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4776E92820FDC22D00D419B1 /* EasyNet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4776E92720FDC22D00D419B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */,
+				4776E93620FDC22D00D419B1 /* Assets.xcassets in Resources */,
+				476D418C2122B739006799E8 /* profile2.jpg in Resources */,
+				47CBD5D92123CE4500468705 /* BrowserBundle.bundle in Resources */,
+				4776E93420FDC22D00D419B1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FDE05726B0D6CDA2852B0BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6731E56A168C7D8057DB350B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet-resources.sh",
+				"${PODS_ROOT}/DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BA3084F6575DFE609900F3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyNet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4776E92520FDC22D00D419B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				476D41922122C26E006799E8 /* MenuCollectionViewCell.m in Sources */,
+				4776E93120FDC22D00D419B1 /* ViewController.m in Sources */,
+				47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */,
+				47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */,
+				47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */,
+				476D41952122C3C2006799E8 /* MenuItemsCollectionViewController.m in Sources */,
+				47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */,
+				4776E93C20FDC22D00D419B1 /* main.m in Sources */,
+				47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */,
+				4776E92E20FDC22D00D419B1 /* AppDelegate.m in Sources */,
+				47CBD5E42123D77500468705 /* Preference.m in Sources */,
+				476D418A2122B6BD006799E8 /* MenuViewController.m in Sources */,
+				476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */,
+				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
+				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
+				47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4776E93220FDC22D00D419B1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4776E93320FDC22D00D419B1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4776E93820FDC22D00D419B1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4776E93D20FDC22D00D419B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4776E93E20FDC22D00D419B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4776E94020FDC22D00D419B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7CF2843D8BC6E3E4DC936C8 /* Pods-EasyNet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42FQR4EVHR;
+				INFOPLIST_FILE = EasyNet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyw.ios.browser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4776E94120FDC22D00D419B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82331AF4383670AF6E4E3B74 /* Pods-EasyNet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42FQR4EVHR;
+				INFOPLIST_FILE = EasyNet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyw.ios.browser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4776E92420FDC22D00D419B1 /* Build configuration list for PBXProject "EasyNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4776E93D20FDC22D00D419B1 /* Debug */,
+				4776E93E20FDC22D00D419B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4776E93F20FDC22D00D419B1 /* Build configuration list for PBXNativeTarget "EasyNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4776E94020FDC22D00D419B1 /* Debug */,
+				4776E94120FDC22D00D419B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4776E92120FDC22D00D419B1 /* Project object */;
+}
