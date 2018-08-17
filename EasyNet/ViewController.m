@@ -11,7 +11,7 @@
 #import "WebBrowserViewController.h"
 
 @interface ViewController ()<BrowserTagsManagerProtocol>
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+//@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @property (weak, nonatomic) UIViewController *currentVC;
 @end
@@ -39,12 +39,12 @@
     
     [self addChildViewController:vc];
     [vc didMoveToParentViewController:self];
-    [self.containerView addSubview:vc.view];
+    [self.view addSubview:vc.view];
     vc.view.translatesAutoresizingMaskIntoConstraints = false;
-    [vc.view.topAnchor constraintEqualToAnchor:self.containerView.topAnchor constant:0].active = true;
-    [vc.view.leftAnchor constraintEqualToAnchor:self.containerView.leftAnchor constant:0].active = true;
-    [vc.view.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor constant:0].active = true;
-    [vc.view.rightAnchor constraintEqualToAnchor:self.containerView.rightAnchor constant:0].active = true;
+    [vc.view.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:0].active = true;
+    [vc.view.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:0].active = true;
+    [vc.view.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0].active = true;
+    [vc.view.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:0].active = true;
     
     self.currentVC = vc;
 }

@@ -11,37 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="U7w-DG-Fkk">
-            <objects>
-                <viewController id="q88-kj-qYu" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zKk-FO-7aD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZC3-36-hea">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ZC3-36-hea" secondAttribute="trailing" id="5ya-UT-QtD"/>
-                            <constraint firstItem="ZC3-36-hea" firstAttribute="leading" secondItem="zKk-FO-7aD" secondAttribute="leading" id="GaW-QL-oq5"/>
-                            <constraint firstItem="ZC3-36-hea" firstAttribute="top" secondItem="zKk-FO-7aD" secondAttribute="top" id="eIn-Ba-Tzw"/>
-                            <constraint firstAttribute="bottom" secondItem="ZC3-36-hea" secondAttribute="bottom" id="zEX-3F-4YK"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hUL-Ym-2fH"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ZV5-Ih-eS7"/>
-                    <connections>
-                        <outlet property="containerView" destination="ZC3-36-hea" id="FkG-gW-9Ba"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TmO-1u-lsW" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="476" y="133.5832083958021"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="PzX-9W-G3Q">
             <objects>
@@ -53,12 +22,30 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="q88-kj-qYu" kind="relationship" relationship="rootViewController" id="dIw-FQ-0bZ"/>
+                        <segue destination="p5H-4T-3he" kind="relationship" relationship="rootViewController" id="nHu-bx-Ubn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXl-bs-NKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-241" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MlT-Pc-WjX">
+            <objects>
+                <viewController id="p5H-4T-3he" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9n0-zw-9hP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4Gw-Jh-jLJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NYA-77-W8B">
+                        <nil key="title"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uf2-OR-zD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="129"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="3TQ-hd-JKc">
@@ -479,48 +466,62 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-1O-v4o">
-                                            <rect key="frame" x="10" y="18" width="355" height="36"/>
-                                            <color key="backgroundColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.5" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="搜索或输入网址">
-                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <state key="selected" title="我想要的 简单上网">
-                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="0.33000000000000002" alpha="0.69929901541095896" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-mT-Pq4">
+                                            <rect key="frame" x="10" y="24" width="355" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-1O-v4o">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="搜索或输入网址">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected" title="我想要的 简单上网">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="0.33000000000000002" alpha="0.69929901541095896" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="1fx-l5-YzC" kind="presentation" identifier="searchVC" animates="NO" modalPresentationStyle="overFullScreen" id="2E1-Y2-uu1"/>
+                                                    </connections>
+                                                </button>
+                                                <progressView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XiT-3z-bB8">
+                                                    <rect key="frame" x="0.0" y="29" width="355" height="1"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="YhL-Ye-0FK"/>
+                                                    </constraints>
+                                                    <color key="progressTintColor" white="0.33333333333333331" alpha="0.51104987157534243" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </progressView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="2ca-qz-Krp"/>
+                                                <constraint firstAttribute="bottom" secondItem="EHR-1O-v4o" secondAttribute="bottom" id="5Sp-PA-xz4"/>
+                                                <constraint firstItem="EHR-1O-v4o" firstAttribute="top" secondItem="bSd-mT-Pq4" secondAttribute="top" id="Ztp-Kp-TDp"/>
+                                                <constraint firstAttribute="bottom" secondItem="XiT-3z-bB8" secondAttribute="bottom" id="d7A-PW-42E"/>
+                                                <constraint firstAttribute="trailing" secondItem="EHR-1O-v4o" secondAttribute="trailing" constant="15" id="iMQ-Zm-Xp9"/>
+                                                <constraint firstAttribute="trailing" secondItem="XiT-3z-bB8" secondAttribute="trailing" id="jPp-rZ-qxN"/>
+                                                <constraint firstItem="EHR-1O-v4o" firstAttribute="leading" secondItem="bSd-mT-Pq4" secondAttribute="leading" constant="15" id="ps9-L0-fDk"/>
+                                                <constraint firstItem="XiT-3z-bB8" firstAttribute="leading" secondItem="bSd-mT-Pq4" secondAttribute="leading" id="vhp-k9-2v9"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <segue destination="1fx-l5-YzC" kind="presentation" identifier="searchVC" animates="NO" modalPresentationStyle="overFullScreen" id="2E1-Y2-uu1"/>
-                                            </connections>
-                                        </button>
-                                        <progressView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XiT-3z-bB8">
-                                            <rect key="frame" x="10" y="18" width="355" height="36"/>
-                                            <color key="progressTintColor" white="0.33333333333333331" alpha="0.10485338184931507" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </progressView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="XiT-3z-bB8" secondAttribute="bottom" constant="10" id="4uP-uS-iL3"/>
-                                        <constraint firstItem="XiT-3z-bB8" firstAttribute="leading" secondItem="EHR-1O-v4o" secondAttribute="leading" id="Grb-qD-eEa"/>
-                                        <constraint firstItem="EHR-1O-v4o" firstAttribute="leading" secondItem="Bxb-Ma-cS2" secondAttribute="leading" constant="10" id="KED-Xs-JjN"/>
-                                        <constraint firstItem="XiT-3z-bB8" firstAttribute="trailing" secondItem="EHR-1O-v4o" secondAttribute="trailing" id="XpU-SR-frQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="EHR-1O-v4o" secondAttribute="bottom" constant="10" id="lQA-c7-5es"/>
-                                        <constraint firstItem="EHR-1O-v4o" firstAttribute="top" secondItem="Bxb-Ma-cS2" secondAttribute="top" constant="18" id="oTB-2u-Mm4"/>
-                                        <constraint firstItem="XiT-3z-bB8" firstAttribute="height" secondItem="EHR-1O-v4o" secondAttribute="height" id="rUp-xw-4nM"/>
-                                        <constraint firstAttribute="trailing" secondItem="EHR-1O-v4o" secondAttribute="trailing" constant="10" id="v9h-ua-npk"/>
+                                        <constraint firstAttribute="bottom" secondItem="bSd-mT-Pq4" secondAttribute="bottom" constant="10" id="8B1-Jw-NGn"/>
+                                        <constraint firstAttribute="trailing" secondItem="bSd-mT-Pq4" secondAttribute="trailing" constant="10" id="ig5-sf-ITt"/>
+                                        <constraint firstItem="bSd-mT-Pq4" firstAttribute="leading" secondItem="Bxb-Ma-cS2" secondAttribute="leading" constant="10" id="obf-kE-1hQ"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -544,13 +545,14 @@
                         <outlet property="backBtn" destination="t5c-W5-nft" id="YMa-nb-qqR"/>
                         <outlet property="forwardBtn" destination="GfR-ZS-oCL" id="SgY-Zw-Hi6"/>
                         <outlet property="headerHeightConst" destination="XXb-bF-RB5" id="jYa-q3-aoS"/>
-                        <outlet property="headertitleTopConst" destination="oTB-2u-Mm4" id="uZh-O2-KkE"/>
                         <outlet property="homeBtn" destination="9Hy-nc-de2" id="LWd-1Z-MHv"/>
                         <outlet property="progressView" destination="XiT-3z-bB8" id="bDZ-d3-O6I"/>
                         <outlet property="searchDisplayController" destination="dun-fY-uwm" id="QiU-T3-uce"/>
                         <outlet property="searchHeaderView" destination="Bxb-Ma-cS2" id="OcI-of-SMN"/>
                         <outlet property="tabsBtn" destination="K5K-Rj-ath" id="f0o-Gp-vXd"/>
                         <outlet property="titleBtn" destination="EHR-1O-v4o" id="a1d-NK-gyW"/>
+                        <outlet property="toolBar" destination="bBK-6S-skE" id="bnn-J5-ccE"/>
+                        <outlet property="topView" destination="9oA-VO-lw8" id="xWZ-LD-LWu"/>
                         <segue destination="DOW-J9-dKT" kind="presentation" identifier="BrowserPicture" animates="NO" modalPresentationStyle="overFullScreen" id="5dJ-wm-Zsc"/>
                     </connections>
                 </viewController>

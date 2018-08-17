@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headertitleTopConst;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *topView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
@@ -50,10 +52,12 @@
         config.processPool = [[WKProcessPool alloc]init];
         [config.preferences setJavaScriptCanOpenWindowsAutomatically:false];
         config.preferences.javaScriptEnabled = true;
+        
         [config setWebsiteDataStore:WKWebsiteDataStore.nonPersistentDataStore];
         
         WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
-        
+        webview.allowsBackForwardNavigationGestures = true;
+//        webview.alignmentRectInsets
         _webView = webview;
     }
     return _webView;
@@ -77,19 +81,26 @@
 -(void)customWebView{
     [self.view insertSubview:self.webView atIndex:0];
 //    self.webView.frame = CGRectMake(0, 0, YYScreenSize().width, YYScreenSize().height);
+    self.automaticallyAdjustsScrollViewInsets = true;
     self.webView.translatesAutoresizingMaskIntoConstraints = false;
-    [self.webView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:0].active = true;
-    [self.webView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0].active = true;;
-    [self.webView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:0].active = true;;
-    [self.webView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:0].active = true;;
+    
+    [self.webView.topAnchor    constraintEqualToAnchor: self.topView.bottomAnchor    constant:0].active = true;
+    [self.webView.bottomAnchor constraintEqualToAnchor: self.toolBar.topAnchor constant:0].active = true;;
+    [self.webView.leftAnchor   constraintEqualToAnchor: self.view.leftAnchor   constant:0].active = true;;
+    [self.webView.rightAnchor  constraintEqualToAnchor: self.view.rightAnchor  constant:0].active = true;;
     
     self.webView.UIDelegate = [TabMabager shareInstance];
     self.webView.navigationDelegate = [TabMabager shareInstance];
     
     [self addJS];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
+    
+    if (@available(iOS 11.0, *)) {
+        self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+//    self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
@@ -116,6 +127,11 @@
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:false];
     
     [self.webView.configuration.userContentController addUserScript:userScript];
+//    // 2.去掉页面标题
+//
+//    NSString *removeHeaderBack = @"var header = document.getElementsByTagName(\"header\")[0];header.parentNode.removeChild(header);";
+//    WKUserScript *removeHeaderBackScript = [[WKUserScript alloc] initWithSource:removeHeaderBack injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:false];
+//    [self.webView.configuration.userContentController addUserScript:removeHeaderBackScript];
     
     [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"OOFJS"];
     
@@ -129,10 +145,11 @@
             CGFloat progress = newStr.floatValue;
             
             NSLog(@"%f",progress);
-            if (progress < 0.11){
-                //处理goback导致的进度条动。
-                return;
-            }
+            
+//            if (progress < 0.11){
+//                //处理goback导致的进度条动。
+//                return;
+//            }
             if(progress > self.progressView.progress){
                 if (progress - self.progressView.progress > 0.7){
                     self.progressView.progress = progress;
@@ -142,10 +159,24 @@
             }else{
                 self.progressView.progress = progress;
             }
+            
+            self.progressView.hidden = (progress > 0.99);
         }else if ([keyPath isEqualToString:@"URL"]){
             
+            if ([newStr isKindOfClass:[NSURL class]]){
+                NSURL *url = (NSURL *)newStr;
+                [self.titleBtn setTitle:url.host forState:UIControlStateNormal];
+            }
+            
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [self.webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable jsstr, NSError * _Nullable error) {
+//                    [self.titleBtn setTitle:jsstr forState:UIControlStateNormal];
+//                }];
+//            });
+
         }else if ([keyPath isEqualToString:@"title"]){
-            [self.titleBtn setTitle:newStr forState:UIControlStateNormal];
+            NSString *t = [NSString stringWithFormat:@"%@-%@",newStr,self.webView.URL.host];
+            [self.titleBtn setTitle:t forState:UIControlStateNormal];
         }else if ([keyPath isEqualToString:@"loading"]){
             
             [self.forwardBtn setTitle:newStr.integerValue == 1? @"X" : @">"];
@@ -163,6 +194,7 @@
 -(void)viewSafeAreaInsetsDidChange
 {
     [super viewSafeAreaInsetsDidChange];
+//    self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.view.safeAreaInsets.top + 44, 0, self.view.safeAreaInsets.bottom + 40, 0);
     self.headerHeightConst.constant = self.view.safeAreaInsets.top + 44;
     self.headertitleTopConst.constant = self.view.safeAreaInsets.top -1;
 }
