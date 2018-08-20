@@ -24,7 +24,6 @@
 		47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */; };
 		47BD202821254AA400C197F4 /* LinkElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202721254AA400C197F4 /* LinkElement.m */; };
 		47BD202B21255F1A00C197F4 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */; };
-		47BD202F2125671400C197F4 /* ENWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202E2125671400C197F4 /* ENWebView.m */; };
 		47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD2031212572FB00C197F4 /* UIImage+SavingData.m */; };
 		47BD20352125797A00C197F4 /* BrowserTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD20342125797A00C197F4 /* BrowserTagsManager.m */; };
 		47BD203B212589D600C197F4 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 47BD2036212589D500C197F4 /* 5.jpg */; };
@@ -74,8 +73,6 @@
 		47BD202721254AA400C197F4 /* LinkElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkElement.m; sourceTree = "<group>"; };
 		47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		47BD202A21255F1A00C197F4 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
-		47BD202D2125671400C197F4 /* ENWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENWebView.h; sourceTree = "<group>"; };
-		47BD202E2125671400C197F4 /* ENWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENWebView.m; sourceTree = "<group>"; };
 		47BD2030212572FB00C197F4 /* UIImage+SavingData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+SavingData.h"; sourceTree = "<group>"; };
 		47BD2031212572FB00C197F4 /* UIImage+SavingData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SavingData.m"; sourceTree = "<group>"; };
 		47BD20332125797A00C197F4 /* BrowserTagsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTagsManager.h; sourceTree = "<group>"; };
@@ -248,12 +245,26 @@
 		4787EB1F212A9B9A00DF3E3E /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				4787EB20212A9C8200DF3E3E /* Views */,
 				47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */,
 				47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */,
 				47BD20332125797A00C197F4 /* BrowserTagsManager.h */,
 				47BD20342125797A00C197F4 /* BrowserTagsManager.m */,
 			);
 			path = Tabs;
+			sourceTree = "<group>";
+		};
+		4787EB20212A9C8200DF3E3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47BD20442125900600C197F4 /* CardCellCollectionViewCell.h */,
+				47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */,
+				47BD20452125900600C197F4 /* CardLayout.h */,
+				47BD20432125900600C197F4 /* CardLayout.m */,
+				47BD20422125900600C197F4 /* CardSelectedLayout.h */,
+				47BD20402125900600C197F4 /* CardSelectedLayout.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		47BD2025212536AC00C197F4 /* Models */ = {
@@ -268,14 +279,6 @@
 		47BD202C212566F900C197F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47BD20442125900600C197F4 /* CardCellCollectionViewCell.h */,
-				47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */,
-				47BD20452125900600C197F4 /* CardLayout.h */,
-				47BD20432125900600C197F4 /* CardLayout.m */,
-				47BD20422125900600C197F4 /* CardSelectedLayout.h */,
-				47BD20402125900600C197F4 /* CardSelectedLayout.m */,
-				47BD202D2125671400C197F4 /* ENWebView.h */,
-				47BD202E2125671400C197F4 /* ENWebView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -476,7 +479,6 @@
 				47BD20472125900600C197F4 /* CardCellCollectionViewCell.m in Sources */,
 				47BD20462125900600C197F4 /* CardSelectedLayout.m in Sources */,
 				476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */,
-				47BD202F2125671400C197F4 /* ENWebView.m in Sources */,
 				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
 				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
 				47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */,
