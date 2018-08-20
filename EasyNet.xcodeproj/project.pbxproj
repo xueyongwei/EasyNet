@@ -37,7 +37,7 @@
 		47BD20482125900600C197F4 /* CardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD20432125900600C197F4 /* CardLayout.m */; };
 		47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */; };
 		47CBD5D92123CE4500468705 /* BrowserBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47CBD5D82123CE4500468705 /* BrowserBundle.bundle */; };
-		47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5DC2123D0DF00468705 /* TabMabager.m */; };
+		47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5DC2123D0DF00468705 /* TabWebviewDelegate.m */; };
 		47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E02123D57600468705 /* NSString+EasyNet.m */; };
 		47CBD5E42123D77500468705 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E32123D77500468705 /* Preference.m */; };
 		47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E72123D9EB00468705 /* ENUserAgent.m */; };
@@ -94,8 +94,8 @@
 		47CBD5D32123CA7E00468705 /* BrowserTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabViewController.h; sourceTree = "<group>"; };
 		47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabViewController.m; sourceTree = "<group>"; };
 		47CBD5D82123CE4500468705 /* BrowserBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BrowserBundle.bundle; sourceTree = "<group>"; };
-		47CBD5DB2123D0DF00468705 /* TabMabager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabMabager.h; sourceTree = "<group>"; };
-		47CBD5DC2123D0DF00468705 /* TabMabager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabMabager.m; sourceTree = "<group>"; };
+		47CBD5DB2123D0DF00468705 /* TabWebviewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabWebviewDelegate.h; sourceTree = "<group>"; };
+		47CBD5DC2123D0DF00468705 /* TabWebviewDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabWebviewDelegate.m; sourceTree = "<group>"; };
 		47CBD5DF2123D57600468705 /* NSString+EasyNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyNet.h"; sourceTree = "<group>"; };
 		47CBD5E02123D57600468705 /* NSString+EasyNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyNet.m"; sourceTree = "<group>"; };
 		47CBD5E22123D77500468705 /* Preference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
@@ -148,8 +148,6 @@
 				47BD2039212589D500C197F4 /* 3.jpg */,
 				47BD2037212589D500C197F4 /* 4.jpg */,
 				47BD2036212589D500C197F4 /* 5.jpg */,
-				47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */,
-				47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -225,6 +223,7 @@
 		4776E92B20FDC22D00D419B1 /* EasyNet */ = {
 			isa = PBXGroup;
 			children = (
+				4787EB1F212A9B9A00DF3E3E /* Tabs */,
 				47CBD5EA2124086100468705 /* Search */,
 				47CBD5DE2123D53D00468705 /* Global */,
 				476D41A02122EF88006799E8 /* Vendor */,
@@ -244,6 +243,17 @@
 				4776E93B20FDC22D00D419B1 /* main.m */,
 			);
 			path = EasyNet;
+			sourceTree = "<group>";
+		};
+		4787EB1F212A9B9A00DF3E3E /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */,
+				47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */,
+				47BD20332125797A00C197F4 /* BrowserTagsManager.h */,
+				47BD20342125797A00C197F4 /* BrowserTagsManager.m */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 		47BD2025212536AC00C197F4 /* Models */ = {
@@ -273,10 +283,8 @@
 		47CBD5DA2123D0CC00468705 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				47CBD5DB2123D0DF00468705 /* TabMabager.h */,
-				47CBD5DC2123D0DF00468705 /* TabMabager.m */,
-				47BD20332125797A00C197F4 /* BrowserTagsManager.h */,
-				47BD20342125797A00C197F4 /* BrowserTagsManager.m */,
+				47CBD5DB2123D0DF00468705 /* TabWebviewDelegate.h */,
+				47CBD5DC2123D0DF00468705 /* TabWebviewDelegate.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -471,7 +479,7 @@
 				47BD202F2125671400C197F4 /* ENWebView.m in Sources */,
 				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
 				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
-				47CBD5DD2123D0DF00468705 /* TabMabager.m in Sources */,
+				47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

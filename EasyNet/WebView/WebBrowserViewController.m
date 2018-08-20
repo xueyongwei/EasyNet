@@ -8,7 +8,7 @@
 
 #import "WebBrowserViewController.h"
 #import "SearchViewController.h"
-#import "TabMabager.h"
+#import "TabWebviewDelegate.h"
 #import <WebKit/WebKit.h>
 #import <YYKit.h>
 #import "LinkElement.h"
@@ -16,7 +16,7 @@
 #import <Photos/Photos.h>
 #import "UIAlertController+Blocks.h"
 #import "UIImage+SavingData.h"
-
+#import "BrowserTagsManager.h"
 
 @interface WebBrowserViewController ()
 
@@ -89,8 +89,8 @@
     [self.webView.leftAnchor   constraintEqualToAnchor: self.view.leftAnchor   constant:0].active = true;;
     [self.webView.rightAnchor  constraintEqualToAnchor: self.view.rightAnchor  constant:0].active = true;;
     
-    self.webView.UIDelegate = [TabMabager shareInstance];
-    self.webView.navigationDelegate = [TabMabager shareInstance];
+    self.webView.UIDelegate = [TabWebviewDelegate shareInstance];
+    self.webView.navigationDelegate = [TabWebviewDelegate shareInstance];
     
     [self addJS];
     
@@ -296,7 +296,7 @@
                 [self getPicBrowserArray:arg[0]];
             }
         }else if ([obj isKindOfClass:[NSDictionary class]]){
-            NSDictionary *arg = (NSDictionary *)obj;
+//            NSDictionary *arg = (NSDictionary *)obj;
         }
     }
     
@@ -377,7 +377,7 @@
         if ([dialogTitle hasPrefix:@"javascript:"]){//执行js的不需要弹窗
             return;
         }
-        [actionSheetController addAction:[self actionOpenInNewTag]];
+        [actionSheetController addAction:[self actionOpenInNewTag:element.link]];
         [actionSheetController addAction:[self actionBrowserImage]];
         [actionSheetController addAction:[self actionCopyLinkUrl:element.link.absoluteString]];
         if (linkText.length > 0){
@@ -390,12 +390,12 @@
         if ([dialogTitle hasPrefix:@"javascript:"]){//执行js的不需要弹窗
             return;
         }
-        [actionSheetController addAction:[self actionOpenInNewTag]];
+        [actionSheetController addAction:[self actionOpenInNewTag:element.link]];
         [actionSheetController addAction:[self actionCopyLinkUrl:element.link.absoluteString]];
         if (linkText.length > 0){
             [actionSheetController addAction:[self actionCopyLinkText:element.linkText]];
         }
-        [actionSheetController addAction:[self actionShare]];
+//        [actionSheetController addAction:[self actionShare]];
         dialogTitle = self.element.link.absoluteString;
     }else if(self.element.image){
         [actionSheetController addAction:[self actionBrowserImage]];
@@ -415,9 +415,13 @@
     return ac;
 }
 
--(UIAlertAction *)actionOpenInNewTag{
+-(UIAlertAction *)actionOpenInNewTag:(NSURL *)url{
+    
+    
     UIAlertAction *ac = [UIAlertAction actionWithTitle:@"在新标签打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [MBProgressHUD showFailImage:@"还没有实现"];
+        WebBrowserViewController *web = [self.storyboard instantiateViewControllerWithIdentifier:@"WebBrowserViewController"];
+        web.needLoadUrlStr = url.absoluteString;
+        [BrowserTagsManager addNewTag:web display:true];
     }];
     return ac;
 }

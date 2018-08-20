@@ -8,7 +8,7 @@
 
 #import "BrowserTabViewController.h"
 #import <WebKit/WebKit.h>
-#import "TabMabager.h"
+#import "TabWebviewDelegate.h"
 @interface BrowserTabViewController ()
 
 /// 无痕配置
@@ -60,14 +60,14 @@
         WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:false];
         [self.privateConfiguration.userContentController addUserScript:userScript];
         
-        [self.privateConfiguration.userContentController addScriptMessageHandler:TabMabager.shareInstance name:@"EN"];
+        [self.privateConfiguration.userContentController addScriptMessageHandler:TabWebviewDelegate.shareInstance name:@"EN"];
         
         WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:self.privateConfiguration];
         webview.accessibilityLabel = NSLocalizedString(@"Web content", comment: @"Accessibility label for the main web content view");
         webview.allowsBackForwardNavigationGestures = true;
         webview.scrollView.layer.masksToBounds = true;
-        webview.navigationDelegate = TabMabager.shareInstance;
-        webview.UIDelegate = TabMabager.shareInstance;
+        webview.navigationDelegate = TabWebviewDelegate.shareInstance;
+        webview.UIDelegate = TabWebviewDelegate.shareInstance;
         webview.scrollView.backgroundColor = [UIColor clearColor];
         webview.scrollView.delegate = self;
         webview.backgroundColor = [UIColor whiteColor];

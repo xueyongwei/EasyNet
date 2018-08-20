@@ -6,19 +6,19 @@
 //  Copyright © 2018年 薛永伟. All rights reserved.
 //
 
-#import "TabMabager.h"
+#import "TabWebviewDelegate.h"
 #import "UIAlertController+Blocks.h"
 
-@implementation TabMabager
+@implementation TabWebviewDelegate
 {
     NSArray * allImagesUrl;
 }
 
-+ (TabMabager*)shareInstance{
++ (TabWebviewDelegate*)shareInstance{
     static dispatch_once_t onceToken;
-    static TabMabager *manager = nil;
+    static TabWebviewDelegate *manager = nil;
     dispatch_once(&onceToken, ^{
-        manager = [[TabMabager alloc] init];
+        manager = [[TabWebviewDelegate alloc] init];
     });
     return manager;
 }

@@ -11,10 +11,9 @@
 
 
 /// 处理webView的各种代理方法
-@interface TabMabager : NSObject <WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler>
+@interface TabWebviewDelegate : NSObject <WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler>
 /// 一个实例
-+ (TabMabager*)shareInstance;
-
++ (TabWebviewDelegate*)shareInstance;
 
 
 @end
