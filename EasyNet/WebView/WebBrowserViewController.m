@@ -17,6 +17,7 @@
 #import "UIAlertController+Blocks.h"
 #import "UIImage+SavingData.h"
 #import "BrowserTagsManager.h"
+#import "Preference.h"
 
 @interface WebBrowserViewController ()
 
@@ -219,7 +220,10 @@
 -(UIImage *)thumbImage{
     return [self.webView snapshotImage];
 }
-
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [Preference shared].webViewSize = self.webView.bounds.size;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

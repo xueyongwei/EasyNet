@@ -9,7 +9,14 @@
 #import "Preference.h"
 
 @implementation Preference
-
++(Preference*)shared{
+    static Preference *p = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        p = [[Preference alloc]init];
+    });
+    return p;
+}
 @end
 
 //MARK: - UA

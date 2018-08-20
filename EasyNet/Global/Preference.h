@@ -6,11 +6,13 @@
 //  Copyright © 2018年 薛永伟. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Preference : NSObject
 
+@property (nonatomic,assign) CGSize webViewSize;
 
++(Preference*)shared;
 
 
 @end

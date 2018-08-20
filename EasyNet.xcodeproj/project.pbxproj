@@ -21,6 +21,9 @@
 		4776E93620FDC22D00D419B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93520FDC22D00D419B1 /* Assets.xcassets */; };
 		4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */; };
 		4776E93C20FDC22D00D419B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E93B20FDC22D00D419B1 /* main.m */; };
+		4787EB29212ACEF300DF3E3E /* YWPhotoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */; };
+		4787EB2C212AD08100DF3E3E /* WebTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */; };
+		4787EB2F212AD14B00DF3E3E /* TagListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB2E212AD14B00DF3E3E /* TagListCollectionViewController.m */; };
 		47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */; };
 		47BD202821254AA400C197F4 /* LinkElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202721254AA400C197F4 /* LinkElement.m */; };
 		47BD202B21255F1A00C197F4 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202921255F1A00C197F4 /* MBProgressHUD+Utility.m */; };
@@ -67,6 +70,12 @@
 		4776E93820FDC22D00D419B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4776E93A20FDC22D00D419B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4776E93B20FDC22D00D419B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4787EB27212ACEF200DF3E3E /* YWPhotoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWPhotoFlowLayout.h; sourceTree = "<group>"; };
+		4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWPhotoFlowLayout.m; sourceTree = "<group>"; };
+		4787EB2A212AD08100DF3E3E /* WebTagCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebTagCollectionViewCell.h; sourceTree = "<group>"; };
+		4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebTagCollectionViewCell.m; sourceTree = "<group>"; };
+		4787EB2D212AD14B00DF3E3E /* TagListCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagListCollectionViewController.h; sourceTree = "<group>"; };
+		4787EB2E212AD14B00DF3E3E /* TagListCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagListCollectionViewController.m; sourceTree = "<group>"; };
 		47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabsListViewController.h; sourceTree = "<group>"; };
 		47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabsListViewController.m; sourceTree = "<group>"; };
 		47BD202621254AA400C197F4 /* LinkElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkElement.h; sourceTree = "<group>"; };
@@ -248,6 +257,8 @@
 				4787EB20212A9C8200DF3E3E /* Views */,
 				47BD202221251E6200C197F4 /* BrowserTabsListViewController.h */,
 				47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */,
+				4787EB2D212AD14B00DF3E3E /* TagListCollectionViewController.h */,
+				4787EB2E212AD14B00DF3E3E /* TagListCollectionViewController.m */,
 				47BD20332125797A00C197F4 /* BrowserTagsManager.h */,
 				47BD20342125797A00C197F4 /* BrowserTagsManager.m */,
 			);
@@ -257,6 +268,10 @@
 		4787EB20212A9C8200DF3E3E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4787EB27212ACEF200DF3E3E /* YWPhotoFlowLayout.h */,
+				4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */,
+				4787EB2A212AD08100DF3E3E /* WebTagCollectionViewCell.h */,
+				4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */,
 				47BD20442125900600C197F4 /* CardCellCollectionViewCell.h */,
 				47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */,
 				47BD20452125900600C197F4 /* CardLayout.h */,
@@ -462,6 +477,7 @@
 				476D41922122C26E006799E8 /* MenuCollectionViewCell.m in Sources */,
 				4776E93120FDC22D00D419B1 /* ViewController.m in Sources */,
 				47BD202821254AA400C197F4 /* LinkElement.m in Sources */,
+				4787EB2C212AD08100DF3E3E /* WebTagCollectionViewCell.m in Sources */,
 				47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */,
 				47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */,
 				47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */,
@@ -477,10 +493,12 @@
 				47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */,
 				476D418A2122B6BD006799E8 /* MenuViewController.m in Sources */,
 				47BD20472125900600C197F4 /* CardCellCollectionViewCell.m in Sources */,
+				4787EB2F212AD14B00DF3E3E /* TagListCollectionViewController.m in Sources */,
 				47BD20462125900600C197F4 /* CardSelectedLayout.m in Sources */,
 				476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */,
 				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
 				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
+				4787EB29212ACEF300DF3E3E /* YWPhotoFlowLayout.m in Sources */,
 				47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
