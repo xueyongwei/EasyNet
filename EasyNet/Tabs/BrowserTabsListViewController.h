@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TagListCollectionViewController.h"
 @interface BrowserTabsListViewController : UIViewController
+
+@end
+
+@interface BrowserTabsListViewController(TagListProtocol)<TagListCollectionProtocol>
 
 @end

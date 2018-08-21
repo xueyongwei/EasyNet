@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol TagListCollectionProtocol<NSObject>
+-(void)didScrollTo:(NSInteger)idx;
+@end
 
 @interface TagListCollectionViewController : UICollectionViewController
-
+@property (weak,nonatomic) id<TagListCollectionProtocol> delegate;
 @end

@@ -65,6 +65,15 @@ static NSString * const reuseIdentifier = @"WebTagCollectionViewCell";
     
     return cell;
 }
+#pragma mark <UIScrollViewDelegate>
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat centerX = scrollView.contentOffset.x + scrollView.bounds.size.width/2;
+    CGPoint center = CGPointMake(centerX, scrollView.bounds.size.height/2);
+    NSIndexPath *idxPath = [self.collectionView indexPathForItemAtPoint:center];
+    NSInteger idx = idxPath.item;
+    [self.delegate didScrollTo:idx];
+}
 
 #pragma mark <UICollectionViewDelegate>
 

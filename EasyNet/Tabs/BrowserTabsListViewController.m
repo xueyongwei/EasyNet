@@ -11,6 +11,7 @@
 #import "CardSelectedLayout.h"
 #import "CardCellCollectionViewCell.h"
 #import "BrowserTagsManager.h"
+#import "TagListCollectionViewController.h"
 
 #define RGBAColor(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define RGBColor(r,g,b)     RGBAColor(r,g,b,1.0)
@@ -18,6 +19,7 @@
 
 
 @interface BrowserTabsListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,CardLayoutDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *effectBgView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomEffectBarHeightConst;
@@ -78,15 +80,19 @@
 - (IBAction)onClearClick:(UIButton *)sender {
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"TagListCollectionViewController"]) {
+        TagListCollectionViewController *tag = segue.destinationViewController;
+        tag.delegate = self;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 
 
@@ -129,4 +135,11 @@
 }
 
 
+@end
+
+@implementation BrowserTabsListViewController(TagListProtocol)
+-(void)didScrollTo:(NSInteger)idx{
+    
+    self.countLabel.text = [NSString stringWithFormat:@"%ld/%lu",(long)idx+1,(unsigned long)[BrowserTagsManager shareInstance].tabs.count];
+}
 @end
