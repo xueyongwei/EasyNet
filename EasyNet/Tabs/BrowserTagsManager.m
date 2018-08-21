@@ -43,6 +43,14 @@
 
 +(void)deleteAt:(NSInteger)idx{
     [[self shareInstance].tabs removeObjectAtIndex:idx];
+    
+    
 }
 
++(WebBrowserViewController *)createNewBrowser{
+    
+    WebBrowserViewController *web = [[self shareInstance].delegate.storyboard instantiateViewControllerWithIdentifier:@"WebBrowserViewController"];
+    web.needLoadUrlStr = @"";
+    return web;
+}
 @end

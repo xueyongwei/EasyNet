@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "⌄"; ObjectID = "1ff-nc-DkA"; */
+"1ff-nc-DkA.text" = "⌄";
+
+/* Class = "UIButton"; normalTitle = "↸"; ObjectID = "5Pj-c1-end"; */
+"5Pj-c1-end.normalTitle" = "↸";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8dr-u3-PPu"; */
+"8dr-u3-PPu.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "囧"; ObjectID = "9Hy-nc-de2"; */
+"9Hy-nc-de2.title" = "囧";
+
+/* Class = "UILabel"; text = "1/20"; ObjectID = "B5u-iH-j1G"; */
+"B5u-iH-j1G.text" = "1/20";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "BKC-eU-7f8"; */
+"BKC-eU-7f8.normalTitle" = "清空";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "CCu-4R-eiV"; */
+"CCu-4R-eiV.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "搜索或输入网址"; ObjectID = "EHR-1O-v4o"; */
+"EHR-1O-v4o.normalTitle" = "搜索或输入网址";
+
+/* Class = "UIButton"; selectedTitle = "我想要的 简单上网"; ObjectID = "EHR-1O-v4o"; */
+"EHR-1O-v4o.selectedTitle" = "我想要的 简单上网";
+
+/* Class = "UIBarButtonItem"; title = ">"; ObjectID = "GfR-ZS-oCL"; */
+"GfR-ZS-oCL.title" = ">";
+
+/* Class = "UIBarButtonItem"; title = "吕"; ObjectID = "K5K-Rj-ath"; */
+"K5K-Rj-ath.title" = "吕";
+
+/* Class = "UIButton"; normalTitle = "返回"; ObjectID = "RA7-YJ-l7l"; */
+"RA7-YJ-l7l.normalTitle" = "返回";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Smi-WH-eIU"; */
+"Smi-WH-eIU.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "新建"; ObjectID = "YyX-Mt-JAS"; */
+"YyX-Mt-JAS.normalTitle" = "新建";
+
+/* Class = "UISearchBar"; placeholder = "搜索或输入网址"; ObjectID = "Zfy-po-zfa"; */
+"Zfy-po-zfa.placeholder" = "搜索或输入网址";
+
+/* Class = "UILabel"; text = "您最近复制的网址，点击访问"; ObjectID = "Zpo-Vg-MRK"; */
+"Zpo-Vg-MRK.text" = "您最近复制的网址，点击访问";
+
+/* Class = "UILabel"; text = "打开状态"; ObjectID = "Ztp-d5-fAk"; */
+"Ztp-d5-fAk.text" = "打开状态";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eDm-n0-cC1"; */
+"eDm-n0-cC1.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "↸"; ObjectID = "fQf-8J-gfM"; */
+"fQf-8J-gfM.normalTitle" = "↸";
+
+/* Class = "UIBarButtonItem"; title = "三"; ObjectID = "lpb-Ar-vhn"; */
+"lpb-Ar-vhn.title" = "三";
+
+/* Class = "UILabel"; text = "当前访问的网页地址，点击复制到剪切板"; ObjectID = "pIX-3K-YAW"; */
+"pIX-3K-YAW.text" = "当前访问的网页地址，点击复制到剪切板";
+
+/* Class = "UIBarButtonItem"; title = "<"; ObjectID = "t5c-W5-nft"; */
+"t5c-W5-nft.title" = "<";
+
+/* Class = "UILabel"; text = "内核级最高隐私保护"; ObjectID = "wn7-1T-XoZ"; */
+"wn7-1T-XoZ.text" = "内核级最高隐私保护";
+
+/* Class = "UILabel"; text = "上下滑动查看其他标签"; ObjectID = "wrT-9B-Wf7"; */
+"wrT-9B-Wf7.text" = "上下滑动查看其他标签";
+
+/* Class = "UISegmentedControl"; zoF-Ja-cQm.segmentTitles[0] = "网页"; ObjectID = "zoF-Ja-cQm"; */
+"zoF-Ja-cQm.segmentTitles[0]" = "网页";
+
+/* Class = "UISegmentedControl"; zoF-Ja-cQm.segmentTitles[1] = "图片"; ObjectID = "zoF-Ja-cQm"; */
+"zoF-Ja-cQm.segmentTitles[1]" = "图片";
+
+/* Class = "UISegmentedControl"; zoF-Ja-cQm.segmentTitles[2] = "文章"; ObjectID = "zoF-Ja-cQm"; */
+"zoF-Ja-cQm.segmentTitles[2]" = "文章";
+
+/* Class = "UISegmentedControl"; zoF-Ja-cQm.segmentTitles[3] = "问答"; ObjectID = "zoF-Ja-cQm"; */
+"zoF-Ja-cQm.segmentTitles[3]" = "问答";
+
+/* Class = "UISegmentedControl"; zoF-Ja-cQm.segmentTitles[4] = "视频"; ObjectID = "zoF-Ja-cQm"; */
+"zoF-Ja-cQm.segmentTitles[4]" = "视频";

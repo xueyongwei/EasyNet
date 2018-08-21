@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TagListCollectionViewController.h"
 @interface BrowserTabsListViewController : UIViewController
-
+@property (nonatomic,assign) NSInteger showFromIndex;
 @end
 
 @interface BrowserTabsListViewController(TagListProtocol)<TagListCollectionProtocol>

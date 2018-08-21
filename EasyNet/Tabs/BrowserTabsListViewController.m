@@ -7,9 +7,7 @@
 //
 
 #import "BrowserTabsListViewController.h"
-#import "CardLayout.h"
-#import "CardSelectedLayout.h"
-#import "CardCellCollectionViewCell.h"
+
 #import "BrowserTagsManager.h"
 #import "TagListCollectionViewController.h"
 
@@ -18,7 +16,7 @@
 #define RGBColorC(c)        RGBColor((((int)c) >> 16),((((int)c) >> 8) & 0xff),(((int)c) & 0xff))
 
 
-@interface BrowserTabsListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,CardLayoutDelegate>
+@interface BrowserTabsListViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *effectBgView;
@@ -87,6 +85,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"TagListCollectionViewController"]) {
         TagListCollectionViewController *tag = segue.destinationViewController;
+        tag.defaultScrollToIndex = self.showFromIndex;
+//        tag.collectionView.contentInset = UIEdgeInsetsMake(100, 0, 0, 100);
         tag.delegate = self;
     }
     // Get the new view controller using [segue destinationViewController].
@@ -94,45 +94,6 @@
 }
 
 
-
-
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return [BrowserTagsManager shareInstance].tabs.count;
-}
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    WebBrowserViewController* web = [BrowserTagsManager shareInstance].tabs[indexPath.item];
-    CardCellCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cardCell" forIndexPath:indexPath];
-    cell.bgColor = [self getGameColor:indexPath.row];
-    cell.title = [NSString stringWithFormat:@"Item %d",(int)indexPath.row];
-    cell.image = [web thumbImage];
-    return cell;
-}
-
--(UIColor*)getGameColor:(NSInteger)index
-{
-    NSArray* colorList = @[RGBColorC(0xfb742a),RGBColorC(0xfcc42d),RGBColorC(0x29c26d),RGBColorC(0xfaa20a),RGBColorC(0x5e64d9),RGBColorC(0x6d7482),RGBColorC(0x54b1ff),RGBColorC(0xe2c179),RGBColorC(0x9973e5),RGBColorC(0x61d4ff)];
-    UIColor* color = [colorList objectAtIndex:(index%10)];
-    return color;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [BrowserTagsManager showTabAt:indexPath.item];
-        [self onBackClick:nil];
-    });
-}
 
 
 @end

@@ -8,33 +8,52 @@
 
 #import "SearchViewController.h"
 #import <YYKit.h>
-
+#import "NSString+Url.h"
 
 
 @interface SearchViewController ()<UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeightConst;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
+@property (nonatomic,strong) NSMutableArray *searchSource;
+@property (nonatomic,assign) NSInteger currentSearchType;
+@property (nonatomic,weak) UIButton *currentEngineBtn;
 @end
 
 @implementation SearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-
+    self.searchSource = [NSMutableArray new];
     self.searchBar.delegate = self;
+    NSArray *web = @[@{@"百度":@"https://m.baidu.com/s?word="},
+                     @{@"搜狗":@"https://m.sogou.com/web/searchList.jsp?keyword="},
+                     @{@"必应":@"https://cn.bing.com/search?q="}
+                     ];
+    NSArray *pic = @[@{@"百度":@"https://m.baidu.com/sf/vsearch?pd=image_content&word="},
+                     @{@"搜狗":@"https://m.sogou.com/web/searchList.jsp?keyword="},
+                     @{@"必应":@"https://cn.bing.com/images/search?q="},
+                     @{@"花瓣":@"http://huaban.com/search/?q=yuri"},
+                     ];
+    NSArray *articl = @[@{@"微信文章":@"http://weixin.sogou.com/weixinwap?ie=utf8&type=2&query="},
+                        @{@"百度文库":@"https://m.baidu.com/sf/vsearch?pd=wenku&word="},
+                        @{@"今日头条":@"https://www.toutiao.com/search/?keyword="},
+                        ];
+    NSArray *ask = @[@{@"知乎":@"http://zhihu.sogou.com/zhihuwap?query="},
+                     @{@"百度知道":@"https://m.baidu.com/sf/vsearch?pd=wenda_tab&word=yuri"},
+                     @{@"悟空问答":@"https://www.wukong.com/search/?keyword="},
+                     ];
+    NSArray *video = @[@{@"优酷":@"http://www.soku.com/m/y/video?q="},
+                     @{@"爱奇艺":@"http://m.iqiyi.com/search.html?source=hot&key="},
+                     @{@"腾讯视频":@"http://m.v.qq.com/search.html?act=0&keyWord="},
+                     ];
+    self.searchSource = [NSMutableArray arrayWithObjects:web,pic,articl,ask,video, nil];
     
-//    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
-//    UIImage * img = [UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(YYScreenSize().width, 36)];
-//    [self.searchBar setSearchFieldBackgroundImage:img forState:UIControlStateNormal];
-    
-//    if (searchField) {
-    
-//        searchField.backgroundColor = [UIColor redColor];
-//        [searchField setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
-//    }
-    
+    [self customStackView:self.searchSource.firstObject];
 }
 
 -(void)viewSafeAreaInsetsDidChange{
@@ -53,7 +72,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.searchBar becomeFirstResponder];
-    self.searchBar.text = self.currentKeyword;
+//    self.searchBar.text = self.currentKeyword;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +80,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)searchSegmentChanged:(UISegmentedControl *)sender {
+    
+    self.currentSearchType = sender.selectedSegmentIndex;
+    NSArray *engines = self.searchSource[sender.selectedSegmentIndex];
+    
+    [self customStackView:engines];
+    
+}
 
+-(void)customStackView:(NSArray *)engines{
+    [self.stackView removeAllSubviews];
+    NSInteger i = 0;
+    for (NSDictionary *dic  in engines) {
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = 100+i;
+        [btn setTitle:dic.allKeys.firstObject forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
+        [self.stackView addArrangedSubview:btn];
+        [btn addTarget:self action:@selector(onEngineClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.titleLabel.font = [UIFont systemFontOfSize:12];
+        i++;
+    }
+    UIButton *first = [self.stackView viewWithTag:100];
+    self.currentEngineBtn = first;
+    first.selected = YES;
+    
+}
+-(void)onEngineClick:(UIButton*)sender{
+    sender.selected = YES;
+    self.currentEngineBtn.selected = false;
+    self.currentEngineBtn = sender;
+}
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     [searchBar setShowsCancelButton:true animated:true];
@@ -81,10 +133,18 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSString *searchKey = searchBar.text;
+    if ([searchKey isURL]) {
+        if (![searchBar.text containsString:@"://"]) {
+            searchKey = [NSString stringWithFormat:@"http://%@",searchKey];
+        }
+        NSURL *url = [[NSURL alloc]initWithString:searchKey];
+        [self.delegate shouldVisit:url];
+    }else{
+        NSURL *url = [self searchEngineUrlWith:searchKey];
+        [self.delegate shouldVisit:url];
+    }
     
-    NSURL *url = [self urlWith:searchBar.text];
-    
-    [self.delegate shouldVisit:url];
 //    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
 //    
 //    [self.sourceWebview loadRequest:request];
@@ -93,53 +153,35 @@
     
 }
 
--(BOOL)canVisitDirect:(NSString *) urlStr {
-    
-    BOOL isAvailableUrl = false;
-    
-    NSString *finalUrl = urlStr;
-    
-    if (![urlStr containsString:@"://"]){//如果没有scheme，添加为http协议
-        finalUrl = [NSString stringWithFormat:@"http://%@",urlStr];
-    }
-    
-    NSString *urlpredicateStr = @"^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$";
-    
-    NSPredicate *urlPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",urlpredicateStr];
-    
-    if ([urlPredicate evaluateWithObject:finalUrl]){
-        isAvailableUrl = true;
-    }else{
-        isAvailableUrl = false;
-        //再去验证是否是输入的IP
-        NSString* ipstr = @"^(https?:\\/\\/)?(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-        NSPredicate *ipPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",ipstr];
-        if ([ipPredicate evaluateWithObject:finalUrl]){//是IP
-            isAvailableUrl = true;
-        }
-    }
-    
-    return isAvailableUrl;
-    
-}
 
--(NSURL *)urlWith:(NSString *)keyword{
+-(NSURL *)searchEngineUrlWith:(NSString *)keyword{
+    NSDictionary *engine = self.searchSource[self.currentSearchType][self.currentEngineBtn.tag -100];
     
-    if ([self canVisitDirect:keyword] == false){//不能直接访问，拼接搜索引擎地址
-        
-        keyword = [NSString stringWithFormat:@"https://m.baidu.com/s?word=%@",[keyword stringByURLEncode]];
-    }
-//    keyword = [keyword stringByURLEncode];
+    NSString *enggineUrl = engine[engine.allKeys.firstObject];
+    keyword = [NSString stringWithFormat:@"%@%@",enggineUrl,[keyword stringByURLEncode]];
     return  [NSURL URLWithString:keyword];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SearchTableViewController"]) {
+        SearchTableViewController *svc = (SearchTableViewController*)segue.destinationViewController;
+        svc.delegate = self;
+        svc.currentUrlStr = self.currentKeyword;
+    }
 }
-*/
 
+
+@end
+
+@implementation SearchViewController(tableView)
+-(void)SearchTableViewControllerFillUrl:(NSString *)str{
+    self.searchBar.text = str;
+}
+-(void)SearchTableViewControllerClickUrl:(NSString *)str{
+    self.searchBar.text = str;
+    [self searchBarSearchButtonClicked:self.searchBar];
+}
 @end

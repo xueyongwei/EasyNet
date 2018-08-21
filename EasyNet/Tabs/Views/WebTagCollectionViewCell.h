@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WebTagCollectionViewCell : UICollectionViewCell
+#import "PanGesCollectionViewCell.h"
+@interface WebTagCollectionViewCell : PanGesCollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageVIew;
+@property (weak, nonatomic) IBOutlet UIView *cotntView;
 
 @end

@@ -12,8 +12,8 @@
 @interface WebBrowserViewController : UIViewController
 /// 需要加载的url
 @property (copy,nonatomic) NSString * needLoadUrlStr;
-/// 缩略图
--(UIImage *)thumbImage;
+@property (nonatomic,strong) UIImage *thumbImage;
+@property (strong, nonatomic) WKWebView *webView;
 @end
 
 @interface WebBrowserViewController(SearchViewControllerProtocol) <SearchViewControllerProtocol>

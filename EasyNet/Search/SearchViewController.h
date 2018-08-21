@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+#import "SearchTableViewController.h"
 
 @protocol SearchViewControllerProtocol <NSObject>
 -(void)shouldVisit:(NSURL *)url;
@@ -21,4 +22,7 @@
 
 @property (nonatomic,weak) id <SearchViewControllerProtocol> delegate;
 
+@end
+
+@interface SearchViewController(tableView)<SearchTableViewControllerProtocol>
 @end

@@ -14,10 +14,12 @@
 @end
 
 @interface BrowserTagsManager : NSObject
-@property (weak,nonatomic) id<BrowserTagsManagerProtocol> delegate;
+@property (weak,nonatomic) UIViewController<BrowserTagsManagerProtocol> *delegate;
 /// 标签数组
 @property (strong,nonatomic) NSMutableArray<WebBrowserViewController*> *tabs;
 +(BrowserTagsManager*)shareInstance;
++(WebBrowserViewController *)createNewBrowser;
 +(void)addNewTag:(WebBrowserViewController *)tag display:(BOOL)display;
 +(void)showTabAt:(NSInteger)idx;
++(void)deleteAt:(NSInteger)idx;
 @end

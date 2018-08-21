@@ -10,7 +10,7 @@
 
 @interface Preference : NSObject
 
-@property (nonatomic,assign) CGSize webViewSize;
+@property (nonatomic,assign) CGRect webViewFrame;
 
 +(Preference*)shared;
 

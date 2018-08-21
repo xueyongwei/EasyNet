@@ -21,7 +21,6 @@
 		4776E93620FDC22D00D419B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93520FDC22D00D419B1 /* Assets.xcassets */; };
 		4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776E93720FDC22D00D419B1 /* LaunchScreen.storyboard */; };
 		4776E93C20FDC22D00D419B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4776E93B20FDC22D00D419B1 /* main.m */; };
-		4787EB29212ACEF300DF3E3E /* YWPhotoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */; };
 		4787EB2C212AD08100DF3E3E /* WebTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */; };
 		4787EB2F212AD14B00DF3E3E /* TagListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787EB2E212AD14B00DF3E3E /* TagListCollectionViewController.m */; };
 		47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD202321251E6200C197F4 /* BrowserTabsListViewController.m */; };
@@ -34,9 +33,6 @@
 		47BD203D212589D600C197F4 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 47BD2038212589D500C197F4 /* 2.jpg */; };
 		47BD203E212589D600C197F4 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 47BD2039212589D500C197F4 /* 3.jpg */; };
 		47BD203F212589D600C197F4 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 47BD203A212589D500C197F4 /* 1.jpg */; };
-		47BD20462125900600C197F4 /* CardSelectedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD20402125900600C197F4 /* CardSelectedLayout.m */; };
-		47BD20472125900600C197F4 /* CardCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */; };
-		47BD20482125900600C197F4 /* CardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BD20432125900600C197F4 /* CardLayout.m */; };
 		47CBD5D52123CA7E00468705 /* BrowserTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */; };
 		47CBD5D92123CE4500468705 /* BrowserBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47CBD5D82123CE4500468705 /* BrowserBundle.bundle */; };
 		47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5DC2123D0DF00468705 /* TabWebviewDelegate.m */; };
@@ -45,6 +41,12 @@
 		47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5E72123D9EB00468705 /* ENUserAgent.m */; };
 		47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CBD5EC2124086F00468705 /* SearchViewController.m */; };
 		47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */; };
+		47F2F2C0212BC01B003E755E /* TabsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2BF212BC01B003E755E /* TabsFlowLayout.m */; };
+		47F2F2C3212BEB6B003E755E /* PanGesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2C2212BEB6B003E755E /* PanGesCollectionViewCell.m */; };
+		47F2F2C6212BFFD1003E755E /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2C5212BFFD1003E755E /* SearchTableViewController.m */; };
+		47F2F2CA212C0DDB003E755E /* SearchListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2C9212C0DDB003E755E /* SearchListModel.m */; };
+		47F2F2CE212C0F74003E755E /* NSString+Url.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2CD212C0F74003E755E /* NSString+Url.m */; };
+		47F2F2D2212C124E003E755E /* SearchListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2D1212C124E003E755E /* SearchListTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +72,6 @@
 		4776E93820FDC22D00D419B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4776E93A20FDC22D00D419B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4776E93B20FDC22D00D419B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4787EB27212ACEF200DF3E3E /* YWPhotoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWPhotoFlowLayout.h; sourceTree = "<group>"; };
-		4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWPhotoFlowLayout.m; sourceTree = "<group>"; };
 		4787EB2A212AD08100DF3E3E /* WebTagCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebTagCollectionViewCell.h; sourceTree = "<group>"; };
 		4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebTagCollectionViewCell.m; sourceTree = "<group>"; };
 		4787EB2D212AD14B00DF3E3E /* TagListCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagListCollectionViewController.h; sourceTree = "<group>"; };
@@ -91,12 +91,6 @@
 		47BD2038212589D500C197F4 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		47BD2039212589D500C197F4 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		47BD203A212589D500C197F4 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		47BD20402125900600C197F4 /* CardSelectedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardSelectedLayout.m; sourceTree = "<group>"; };
-		47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCellCollectionViewCell.m; sourceTree = "<group>"; };
-		47BD20422125900600C197F4 /* CardSelectedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSelectedLayout.h; sourceTree = "<group>"; };
-		47BD20432125900600C197F4 /* CardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardLayout.m; sourceTree = "<group>"; };
-		47BD20442125900600C197F4 /* CardCellCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCellCollectionViewCell.h; sourceTree = "<group>"; };
-		47BD20452125900600C197F4 /* CardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardLayout.h; sourceTree = "<group>"; };
 		47CBD5D32123CA7E00468705 /* BrowserTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTabViewController.h; sourceTree = "<group>"; };
 		47CBD5D42123CA7E00468705 /* BrowserTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabViewController.m; sourceTree = "<group>"; };
 		47CBD5D82123CE4500468705 /* BrowserBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BrowserBundle.bundle; sourceTree = "<group>"; };
@@ -112,6 +106,20 @@
 		47CBD5EC2124086F00468705 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		47F2E90B21241D4300B071BF /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
+		47F2F2BE212BC01B003E755E /* TabsFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsFlowLayout.h; sourceTree = "<group>"; };
+		47F2F2BF212BC01B003E755E /* TabsFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabsFlowLayout.m; sourceTree = "<group>"; };
+		47F2F2C1212BEB6A003E755E /* PanGesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanGesCollectionViewCell.h; sourceTree = "<group>"; };
+		47F2F2C2212BEB6B003E755E /* PanGesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanGesCollectionViewCell.m; sourceTree = "<group>"; };
+		47F2F2C4212BFFD1003E755E /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		47F2F2C5212BFFD1003E755E /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		47F2F2C8212C0DDB003E755E /* SearchListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchListModel.h; sourceTree = "<group>"; };
+		47F2F2C9212C0DDB003E755E /* SearchListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchListModel.m; sourceTree = "<group>"; };
+		47F2F2CC212C0F74003E755E /* NSString+Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Url.h"; sourceTree = "<group>"; };
+		47F2F2CD212C0F74003E755E /* NSString+Url.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Url.m"; sourceTree = "<group>"; };
+		47F2F2D0212C124E003E755E /* SearchListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchListTableViewCell.h; sourceTree = "<group>"; };
+		47F2F2D1212C124E003E755E /* SearchListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchListTableViewCell.m; sourceTree = "<group>"; };
+		47F2F2FB212C20C4003E755E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		47F2F2FC212C20C4003E755E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		82331AF4383670AF6E4E3B74 /* Pods-EasyNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyNet.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet.release.xcconfig"; sourceTree = "<group>"; };
 		C232B20034CC4E27ACB264DA /* libPods-EasyNet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyNet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CF2843D8BC6E3E4DC936C8 /* Pods-EasyNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyNet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyNet/Pods-EasyNet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -268,16 +276,12 @@
 		4787EB20212A9C8200DF3E3E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4787EB27212ACEF200DF3E3E /* YWPhotoFlowLayout.h */,
-				4787EB28212ACEF300DF3E3E /* YWPhotoFlowLayout.m */,
+				47F2F2C1212BEB6A003E755E /* PanGesCollectionViewCell.h */,
+				47F2F2C2212BEB6B003E755E /* PanGesCollectionViewCell.m */,
+				47F2F2BE212BC01B003E755E /* TabsFlowLayout.h */,
+				47F2F2BF212BC01B003E755E /* TabsFlowLayout.m */,
 				4787EB2A212AD08100DF3E3E /* WebTagCollectionViewCell.h */,
 				4787EB2B212AD08100DF3E3E /* WebTagCollectionViewCell.m */,
-				47BD20442125900600C197F4 /* CardCellCollectionViewCell.h */,
-				47BD20412125900600C197F4 /* CardCellCollectionViewCell.m */,
-				47BD20452125900600C197F4 /* CardLayout.h */,
-				47BD20432125900600C197F4 /* CardLayout.m */,
-				47BD20422125900600C197F4 /* CardSelectedLayout.h */,
-				47BD20402125900600C197F4 /* CardSelectedLayout.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +317,8 @@
 				47CBD5E52123D9D900468705 /* Models */,
 				47CBD5DF2123D57600468705 /* NSString+EasyNet.h */,
 				47CBD5E02123D57600468705 /* NSString+EasyNet.m */,
+				47F2F2CC212C0F74003E755E /* NSString+Url.h */,
+				47F2F2CD212C0F74003E755E /* NSString+Url.m */,
 				47CBD5E22123D77500468705 /* Preference.h */,
 				47CBD5E32123D77500468705 /* Preference.m */,
 				47BD2030212572FB00C197F4 /* UIImage+SavingData.h */,
@@ -333,10 +339,32 @@
 		47CBD5EA2124086100468705 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				47F2F2CF212C123C003E755E /* Views */,
+				47F2F2C7212C0DBD003E755E /* Models */,
 				47CBD5EB2124086F00468705 /* SearchViewController.h */,
 				47CBD5EC2124086F00468705 /* SearchViewController.m */,
+				47F2F2C4212BFFD1003E755E /* SearchTableViewController.h */,
+				47F2F2C5212BFFD1003E755E /* SearchTableViewController.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		47F2F2C7212C0DBD003E755E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47F2F2C8212C0DDB003E755E /* SearchListModel.h */,
+				47F2F2C9212C0DDB003E755E /* SearchListModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47F2F2CF212C123C003E755E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47F2F2D0212C124E003E755E /* SearchListTableViewCell.h */,
+				47F2F2D1212C124E003E755E /* SearchListTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,23 +510,25 @@
 				47BD202421251E6200C197F4 /* BrowserTabsListViewController.m in Sources */,
 				47CBD5E82123D9EB00468705 /* ENUserAgent.m in Sources */,
 				47BD202B21255F1A00C197F4 /* MBProgressHUD+Utility.m in Sources */,
-				47BD20482125900600C197F4 /* CardLayout.m in Sources */,
+				47F2F2C6212BFFD1003E755E /* SearchTableViewController.m in Sources */,
 				476D41952122C3C2006799E8 /* MenuItemsCollectionViewController.m in Sources */,
 				47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */,
 				47BD20352125797A00C197F4 /* BrowserTagsManager.m in Sources */,
 				4776E93C20FDC22D00D419B1 /* main.m in Sources */,
+				47F2F2D2212C124E003E755E /* SearchListTableViewCell.m in Sources */,
 				47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */,
 				4776E92E20FDC22D00D419B1 /* AppDelegate.m in Sources */,
 				47CBD5E42123D77500468705 /* Preference.m in Sources */,
 				47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */,
 				476D418A2122B6BD006799E8 /* MenuViewController.m in Sources */,
-				47BD20472125900600C197F4 /* CardCellCollectionViewCell.m in Sources */,
 				4787EB2F212AD14B00DF3E3E /* TagListCollectionViewController.m in Sources */,
-				47BD20462125900600C197F4 /* CardSelectedLayout.m in Sources */,
+				47F2F2C3212BEB6B003E755E /* PanGesCollectionViewCell.m in Sources */,
+				47F2F2C0212BC01B003E755E /* TabsFlowLayout.m in Sources */,
+				47F2F2CA212C0DDB003E755E /* SearchListModel.m in Sources */,
+				47F2F2CE212C0F74003E755E /* NSString+Url.m in Sources */,
 				476D419C2122D184006799E8 /* WebBrowserViewController.m in Sources */,
 				476D41992122CBD1006799E8 /* SettingSwitchViewController.m in Sources */,
 				47CBD5E12123D57600468705 /* NSString+EasyNet.m in Sources */,
-				4787EB29212ACEF300DF3E3E /* YWPhotoFlowLayout.m in Sources */,
 				47CBD5DD2123D0DF00468705 /* TabWebviewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +540,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4776E93320FDC22D00D419B1 /* Base */,
+				47F2F2FB212C20C4003E755E /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -518,6 +549,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4776E93820FDC22D00D419B1 /* Base */,
+				47F2F2FC212C20C4003E755E /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -529,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -584,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

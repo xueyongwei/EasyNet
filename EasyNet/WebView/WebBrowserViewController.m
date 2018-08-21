@@ -18,10 +18,11 @@
 #import "UIImage+SavingData.h"
 #import "BrowserTagsManager.h"
 #import "Preference.h"
+#import "BrowserTabsListViewController.h"
 
 @interface WebBrowserViewController ()
 
-@property (strong, nonatomic) WKWebView *webView;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headertitleTopConst;
@@ -212,17 +213,26 @@
         svc.searchBarSourceView = self.searchHeaderView;
         svc.delegate = self;
         svc.currentKeyword = self.webView.URL.absoluteString;
+        
+    }else if ([segue.identifier isEqualToString:@"BrowserTabsListViewController"]){
+        NSInteger idx = [[BrowserTagsManager shareInstance].tabs indexOfObject:self];
+        [self updateThumbImage];
+        
+        BrowserTabsListViewController *tag = (BrowserTabsListViewController*)segue.destinationViewController;
+        tag.showFromIndex = idx;
+        
     }
 }
 
 
-/// 缩略图
--(UIImage *)thumbImage{
-    return [self.webView snapshotImage];
+/// 更新缩略图
+-(void)updateThumbImage{
+    self.thumbImage = [self.webView snapshotImage];
 }
+
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    [Preference shared].webViewSize = self.webView.bounds.size;
+    [Preference shared].webViewFrame = self.webView.frame;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

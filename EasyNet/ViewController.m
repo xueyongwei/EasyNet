@@ -26,8 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [BrowserTagsManager shareInstance].delegate = self;
-    WebBrowserViewController *web = [self.storyboard instantiateViewControllerWithIdentifier:@"WebBrowserViewController"];
-    web.needLoadUrlStr = @"";
+    
+    WebBrowserViewController *web = [BrowserTagsManager createNewBrowser];
+    
     [BrowserTagsManager addNewTag:web display:true];
 }
 
