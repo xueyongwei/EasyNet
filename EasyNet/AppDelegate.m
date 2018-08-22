@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MenuHelper.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[MenuHelper shareInstance] setItems];
     return YES;
 }
 

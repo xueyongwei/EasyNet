@@ -89,7 +89,49 @@
     [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alv animated:true completion:nil];
 }
 
-
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if (challenge.previousFailureCount == 0 && ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodHTTPBasic] || [challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodHTTPDigest] || [challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodNTLM])) {
+        NSURLCredential *credential = challenge.proposedCredential;
+        if (credential && credential.user.length > 0) {
+            [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+        } else if (challenge.protectionSpace.host.length > 0) {
+            UIAlertController *actionSheetController = [UIAlertController alertControllerWithTitle:@"网页认证" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *loginAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                NSString *user = actionSheetController.textFields[0].text;
+                NSString *pass = actionSheetController.textFields[1].text;
+                
+                if (user.length > 0 && pass.length > 0) {
+                    NSURLCredential *credential = [[NSURLCredential alloc] initWithUser:user password:pass persistence:NSURLCredentialPersistenceForSession];
+                    [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+                }
+                
+            }];
+            [actionSheetController addAction:loginAction];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [actionSheetController addAction:cancelAction];
+            
+            [actionSheetController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                textField.placeholder = @"用户名";
+            }];
+            
+            [actionSheetController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                textField.placeholder = @"密码";
+                textField.secureTextEntry = YES;
+            }];
+            
+            [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:actionSheetController animated:true completion:nil];
+           
+        }
+    }
+    else {
+        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
+}
 
 
 

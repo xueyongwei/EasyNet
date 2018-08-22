@@ -17,6 +17,8 @@
 @property (weak,nonatomic) UIViewController<BrowserTagsManagerProtocol> *delegate;
 /// 标签数组
 @property (strong,nonatomic) NSMutableArray<WebBrowserViewController*> *tabs;
+
++(WebBrowserViewController *)currentWeb;
 +(BrowserTagsManager*)shareInstance;
 +(WebBrowserViewController *)createNewBrowser;
 +(void)addNewTag:(WebBrowserViewController *)tag display:(BOOL)display;

@@ -26,6 +26,18 @@
     }
   }
 
+ // 获取选择的内容
+ function getSelectionAndSendMessage()
+ {
+    var txt = document.getSelection().toString() ;
+    window.webkit.messageHandlers.OOFJS.postMessage({fun: "userSelection",
+                                                 arg:txt,
+                                                 }) ;
+ }
+ document.onmouseup = getSelectionAndSendMessage();
+ document.onkeyup   = getSelectionAndSendMessage();
+ document.oncontextmenu  = getSelectionAndSendMessage();
+ 
   function createHighlightOverlay(element) {
     // Create a parent element to hold each highlight rect.
     // This allows us to set the opacity for the entire highlight
@@ -67,6 +79,7 @@
 
   function handleTouchMove(event) {
     if (longPressTimeout) {
+ getSelectionAndSendMessage();
       var {
         screenX,
         screenY

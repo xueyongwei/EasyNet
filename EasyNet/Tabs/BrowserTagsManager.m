@@ -7,7 +7,7 @@
 //
 
 #import "BrowserTagsManager.h"
-
+#import "ViewController.h"
 @interface BrowserTagsManager()
 
 @end
@@ -41,10 +41,16 @@
     
 }
 
++(WebBrowserViewController *)currentWeb{
+    if([self shareInstance].delegate){
+        ViewController *vc = (ViewController*)[self shareInstance].delegate;
+        return vc.currentVC;
+    }
+    return nil;
+}
+
 +(void)deleteAt:(NSInteger)idx{
     [[self shareInstance].tabs removeObjectAtIndex:idx];
-    
-    
 }
 
 +(WebBrowserViewController *)createNewBrowser{

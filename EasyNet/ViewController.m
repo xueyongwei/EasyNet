@@ -13,7 +13,7 @@
 @interface ViewController ()<BrowserTagsManagerProtocol>
 //@property (weak, nonatomic) IBOutlet UIView *containerView;
 
-@property (weak, nonatomic) UIViewController *currentVC;
+
 @end
 
 @implementation ViewController
@@ -34,6 +34,7 @@
 
 -(void)disPlay:(UIViewController *)vc{
     if (self.currentVC){
+        [self.currentVC updateThumbImage];
         [self.currentVC.view removeFromSuperview];
         [self.currentVC removeFromParentViewController];
     }

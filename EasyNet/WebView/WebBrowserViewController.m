@@ -19,6 +19,7 @@
 #import "BrowserTagsManager.h"
 #import "Preference.h"
 #import "BrowserTabsListViewController.h"
+#import "WKYWebView.h"
 
 @interface WebBrowserViewController ()
 
@@ -57,7 +58,7 @@
         
         [config setWebsiteDataStore:WKWebsiteDataStore.nonPersistentDataStore];
         
-        WKWebView *webview = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
+        WKWebView *webview = [[WKYWebView alloc] initWithFrame:CGRectZero configuration:config];
         webview.allowsBackForwardNavigationGestures = true;
 //        webview.alignmentRectInsets
         _webView = webview;
@@ -119,13 +120,28 @@
 }
 
 -(void)addJS{
-    NSString* path = [NSString stringWithFormat:@"%@/BrowserBundle.bundle/Contents/Resources/ContextMenu.js",NSBundle.mainBundle.resourcePath];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"ContextMenu" ofType:@"js"];
+//    [NSString stringWithFormat:@"%@/BrowserBundle.bundle/Contents/Resources/ContextMenu.js",NSBundle.mainBundle.resourcePath];
+    
     NSError *error;
     NSString * source = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
     if (error != nil) {
         NSLog(@"JS资源文件读取失败！");
     }
     source = [NSString stringWithFormat:@"%@;document.documentElement.style.webkitTouchCallout='none';",source];
+    
+    // 网页内容选择
+    NSString *findInPagePath = [[NSBundle mainBundle] pathForResource:@"FindInPage" ofType:@"js"];
+    NSString * findInPageSource = [NSString stringWithContentsOfFile:findInPagePath encoding:NSUTF8StringEncoding error:&error];
+    source = [source stringByAppendingString:findInPageSource];
+    // 屏蔽百度搜索结果广告
+    NSString *baiduADBlockPath = [[NSBundle mainBundle] pathForResource:@"BaiduADBlock" ofType:@"js"];
+    NSString * baiduSource = [NSString stringWithContentsOfFile:baiduADBlockPath encoding:NSUTF8StringEncoding error:&error];
+    if (error != nil) {
+        NSLog(@"baiduSource JS资源文件读取失败！");
+    }
+    source = [source stringByAppendingString:baiduSource];
+    
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:false];
     
     [self.webView.configuration.userContentController addUserScript:userScript];
@@ -252,8 +268,63 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }
-
-
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+-(void)copy:(id)sender{
+    [self getWebViewSelectionWithCompletion:^(NSString *result) {
+        UIPasteboard *psd = [UIPasteboard generalPasteboard];
+        psd.string = result;
+        [MBProgressHUD showSuccessImage:@"已复制"];
+    }];
+}
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    
+    NSLog(@"%@",NSStringFromSelector(action));
+    
+    if (action == @selector(copy:)) {
+        return YES;
+    }
+    
+    if (action == @selector(menuHelperSearchInWeb:)) {
+        return YES;
+    }
+    if (action == @selector(menuHelperFindInPage)) {
+        return NO;
+    }
+    if (action == @selector(menuHelperNewTagVisit)){
+        return NO;
+    }
+    return NO;
+}
+-(void)menuHelperFindInPage{
+    
+}
+-(void)menuHelperSearchInWeb:(UIMenuController*)sender{
+//    [self copy:sender];
+    [self getWebViewSelectionWithCompletion:^(NSString *result) {
+        NSString *urlstr = [NSString stringWithFormat:@"https://m.baidu.com/s?word=%@",[result stringByURLEncode]];
+        WebBrowserViewController *web = [BrowserTagsManager createNewBrowser];
+        web.needLoadUrlStr = urlstr;
+        [[BrowserTagsManager shareInstance].delegate disPlay:web];
+    }];
+}
+-(void)menuHelperNewTagVisit{
+    
+}
+- (void)getWebViewSelectionWithCompletion:(void(^)(NSString *result))completion{
+    [self.webView evaluateJavaScript:@"window.getSelection().toString();" completionHandler:^(id result, NSError * _Nullable error) {
+        NSLog(@"res:%@",result);
+    }];
+    
+    [self.webView evaluateJavaScript:@"window.__zhongwu__.getSelection();" completionHandler:^(NSString *result, NSError *error){
+        NSLog(@"res3:%@",result);
+        if (result.length > 0 && completion) {
+            completion(result);
+        }
+    }];
+}
 @end
 
 
@@ -294,28 +365,16 @@
 {
     [self handleLongPress:message.body];
     
-    if ([message.name isEqualToString: @"OOFJS"]){
-        NSDictionary *dic = (NSDictionary* )message.body;
-        NSString *fun = dic[@"fun"];
-        if (dic == nil || fun == nil){
-            return;
-        }
-        NSObject *obj = dic[@"arg"];
-        if( [obj isKindOfClass:[NSArray class]] ){
-            NSArray *arg = (NSArray *)obj;
-            if ([fun isEqualToString: @"homeList"]  && arg.count == 1){
-                //                self.homeList(arg[0] as? String ?? "")
-            }
-            else if ([fun isEqualToString: @"getPicBrowserArray"] && arg.count > 0){
-                [self getPicBrowserArray:arg[0]];
-            }
-        }else if ([obj isKindOfClass:[NSDictionary class]]){
-//            NSDictionary *arg = (NSDictionary *)obj;
-        }
+    NSDictionary *dic = (NSDictionary* )message.body;
+    NSString *fun = dic[@"fun"];
+    NSObject *obj = dic[@"arg"];
+    if([fun isEqualToString:@"getPicBrowserArray"]){
+        NSArray *arg = (NSArray *)obj;
+        [self getPicBrowserArray:arg[0]];
+    }else if([fun isEqualToString:@"userSelection"]){
+        NSLog(@"userSelection");
     }
-    
-    
-    
+
 }
 
 -(void)handleLongPress:(NSDictionary *)data {
@@ -479,6 +538,7 @@
     }];
     return ac;
 }
+
 //MARK: - 方法
 
 /// 获取图片地址数组

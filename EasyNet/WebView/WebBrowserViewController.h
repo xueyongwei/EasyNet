@@ -14,6 +14,7 @@
 @property (copy,nonatomic) NSString * needLoadUrlStr;
 @property (nonatomic,strong) UIImage *thumbImage;
 @property (strong, nonatomic) WKWebView *webView;
+-(void)updateThumbImage;
 @end
 
 @interface WebBrowserViewController(SearchViewControllerProtocol) <SearchViewControllerProtocol>

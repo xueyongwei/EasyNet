@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WebBrowserViewController;
 @interface ViewController : UIViewController
 
-
+@property (weak, nonatomic) WebBrowserViewController *currentVC;
 @end
 
