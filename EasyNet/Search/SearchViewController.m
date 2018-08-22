@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import <YYKit.h>
 #import "NSString+Url.h"
+#import "SearchInputView.h"
 
 
 @interface SearchViewController ()<UISearchBarDelegate>
@@ -21,6 +22,7 @@
 @property (nonatomic,strong) NSMutableArray *searchSource;
 @property (nonatomic,assign) NSInteger currentSearchType;
 @property (nonatomic,weak) UIButton *currentEngineBtn;
+@property (nonatomic,strong) SearchInputView *inputView;
 @end
 
 @implementation SearchViewController
@@ -54,6 +56,15 @@
     self.searchSource = [NSMutableArray arrayWithObjects:web,pic,articl,ask,video, nil];
     
     [self customStackView:self.searchSource.firstObject];
+    
+    
+    
+    SearchInputView *siv = [[NSBundle mainBundle]loadNibNamed:@"SearchInputView" owner:self options:nil].lastObject;
+    UITextField *searchField = [_searchBar valueForKey:@"_searchField"];
+    siv.textField = searchField;
+    self.inputView = siv;
+    self.searchBar.inputAccessoryView = siv;
+    
 }
 
 -(void)viewSafeAreaInsetsDidChange{
@@ -118,7 +129,10 @@
 {
     [searchBar setShowsCancelButton:true animated:true];
 }
-
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    self.inputView.slider.enabled = searchText.length > 0;
+    [self.inputView switchQuickInputStateToFirst:searchText.length < 1];
+}
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
@@ -179,6 +193,7 @@
 @implementation SearchViewController(tableView)
 -(void)SearchTableViewControllerFillUrl:(NSString *)str{
     self.searchBar.text = str;
+    [self searchBar:self.searchBar textDidChange:str];
 }
 -(void)SearchTableViewControllerClickUrl:(NSString *)str{
     self.searchBar.text = str;

@@ -47,6 +47,9 @@
 		47D8F98B212D17CD00E18CAA /* MenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D8F98A212D17CD00E18CAA /* MenuHelper.m */; };
 		47D8F98E212D1B8A00E18CAA /* WKYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D8F98D212D1B8A00E18CAA /* WKYWebView.m */; };
 		47D8F990212D377700E18CAA /* ContextMenu.js in Resources */ = {isa = PBXBuildFile; fileRef = 47D8F98F212D377700E18CAA /* ContextMenu.js */; };
+		47D8F9A6212D68CB00E18CAA /* SearchInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D8F9A1212D68CB00E18CAA /* SearchInputView.xib */; };
+		47D8F9A8212D68CB00E18CAA /* SearchInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D8F9A5212D68CB00E18CAA /* SearchInputView.m */; };
+		47D8F9AB212D706C00E18CAA /* CharacterSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D8F9A9212D706B00E18CAA /* CharacterSelectView.m */; };
 		47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */; };
 		47F2F2C0212BC01B003E755E /* TabsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2BF212BC01B003E755E /* TabsFlowLayout.m */; };
 		47F2F2C3212BEB6B003E755E /* PanGesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2F2C2212BEB6B003E755E /* PanGesCollectionViewCell.m */; };
@@ -120,6 +123,11 @@
 		47D8F98C212D1B8A00E18CAA /* WKYWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKYWebView.h; sourceTree = "<group>"; };
 		47D8F98D212D1B8A00E18CAA /* WKYWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKYWebView.m; sourceTree = "<group>"; };
 		47D8F98F212D377700E18CAA /* ContextMenu.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = ContextMenu.js; path = EasyNet/BrowserBundle.bundle/Contents/Resources/ContextMenu.js; sourceTree = SOURCE_ROOT; };
+		47D8F9A1212D68CB00E18CAA /* SearchInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchInputView.xib; sourceTree = "<group>"; };
+		47D8F9A2212D68CB00E18CAA /* SearchInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchInputView.h; sourceTree = "<group>"; };
+		47D8F9A5212D68CB00E18CAA /* SearchInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchInputView.m; sourceTree = "<group>"; };
+		47D8F9A9212D706B00E18CAA /* CharacterSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSelectView.m; sourceTree = "<group>"; };
+		47D8F9AA212D706C00E18CAA /* CharacterSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSelectView.h; sourceTree = "<group>"; };
 		47F2E90B21241D4300B071BF /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		47F2E90C21241D4300B071BF /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		47F2F2BE212BC01B003E755E /* TabsFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsFlowLayout.h; sourceTree = "<group>"; };
@@ -410,6 +418,11 @@
 		47F2F2CF212C123C003E755E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				47D8F9AA212D706C00E18CAA /* CharacterSelectView.h */,
+				47D8F9A9212D706B00E18CAA /* CharacterSelectView.m */,
+				47D8F9A2212D68CB00E18CAA /* SearchInputView.h */,
+				47D8F9A5212D68CB00E18CAA /* SearchInputView.m */,
+				47D8F9A1212D68CB00E18CAA /* SearchInputView.xib */,
 				47F2F2D0212C124E003E755E /* SearchListTableViewCell.h */,
 				47F2F2D1212C124E003E755E /* SearchListTableViewCell.m */,
 			);
@@ -482,6 +495,7 @@
 				4776E93920FDC22D00D419B1 /* LaunchScreen.storyboard in Resources */,
 				47BD203C212589D600C197F4 /* 4.jpg in Resources */,
 				4776E93620FDC22D00D419B1 /* Assets.xcassets in Resources */,
+				47D8F9A6212D68CB00E18CAA /* SearchInputView.xib in Resources */,
 				476D418C2122B739006799E8 /* profile2.jpg in Resources */,
 				47BD203B212589D600C197F4 /* 5.jpg in Resources */,
 				47D8F985212D14E100E18CAA /* FindInPage.js in Resources */,
@@ -569,10 +583,12 @@
 				47F2F2C6212BFFD1003E755E /* SearchTableViewController.m in Sources */,
 				476D41952122C3C2006799E8 /* MenuItemsCollectionViewController.m in Sources */,
 				47F2E90D21241D4300B071BF /* UIAlertController+Blocks.m in Sources */,
+				47D8F9A8212D68CB00E18CAA /* SearchInputView.m in Sources */,
 				47BD20352125797A00C197F4 /* BrowserTagsManager.m in Sources */,
 				4776E93C20FDC22D00D419B1 /* main.m in Sources */,
 				47F2F2D2212C124E003E755E /* SearchListTableViewCell.m in Sources */,
 				47CBD5ED2124086F00468705 /* SearchViewController.m in Sources */,
+				47D8F9AB212D706C00E18CAA /* CharacterSelectView.m in Sources */,
 				4776E92E20FDC22D00D419B1 /* AppDelegate.m in Sources */,
 				47CBD5E42123D77500468705 /* Preference.m in Sources */,
 				47BD2032212572FB00C197F4 /* UIImage+SavingData.m in Sources */,
